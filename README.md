@@ -4,6 +4,7 @@ Kleine Sammlung von Kommandos für jeden Tag, die man immer wieder sucht
 ###  Update auf die neuste Version
 + Je nach dem muss der Host ggf. neu gestartet werden.
 + Falls was schief geht, kann beim Start in der Konsole die alte Version wiederhergstellt werden.
++ Um die Installation durchzuführen müssen Sie das `--dry-run` entfernen
 
 ```
 esxcli network firewall ruleset set -e true -r httpClient
