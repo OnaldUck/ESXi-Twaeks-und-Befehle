@@ -12,7 +12,7 @@ esxcli software vib update -d https://hostupdate.vmware.com/software/VUM/PRODUCT
 esxcli network firewall ruleset set -e false -r httpClient
 ```
 
-## Copy & Paste (Isolation)
+## Copy & Paste aktivieren (Isolation)
 Öffnen Sie die `/etc/vmware/config` Datei mit einem Texteditor.
 Fügen Sie folgende Zeilen hinzu und speichern anschließend wieder die Datei.
 Reboot des Hosts notwendig.
