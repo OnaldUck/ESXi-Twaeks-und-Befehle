@@ -45,3 +45,9 @@ du -h /vmfs/volumes/vmfs/Debian/Debian-flat.vmdk
 m - temporär, M - dauerhaft
 
 `esxcfg-volume -m 5d967053-3b238502-382b-c81f66d03187`
+
+
+### Hardware Version 16.2.x
+Mit der version von VMWare Workstation 16.2 kommt auch ein neuer Hardwarelever `virtualHW.version = "19"` es ermöglicht einen virtuellen TPM 2.0 zu aktivieren ohne die Maschine zu verschlüsseln.
+
+die `managedvm.autoAddVTPM = "software"`
