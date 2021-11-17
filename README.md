@@ -48,6 +48,8 @@ m - temporär, M - dauerhaft
 
 
 ### Hardware Version 16.2.x
-Mit der version von VMWare Workstation 16.2 kommt auch ein neuer Hardwarelever `virtualHW.version = "19"` es ermöglicht einen virtuellen TPM 2.0 zu aktivieren ohne die Maschine zu verschlüsseln.
+Mit der version von VMWare Workstation 16.2 kommt auch ein neuer Hardwarelever `virtualHW.version = "19"` es ermöglicht einen virtuellen TPM 2.0 (für Win11) zu aktivieren ohne die Maschine zu verschlüsseln. Man aktiviert es in der VMX Datei mit `managedvm.autoAddVTPM = "software"`.
 
-die `managedvm.autoAddVTPM = "software"`
+Achtung es ist experimentel:
++ Snapshots vorher entfernen
++ Snapshots nur im ausgeschalteten zustan erstellen
