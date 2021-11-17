@@ -53,3 +53,7 @@ Mit der version von VMWare Workstation 16.2 kommt auch ein neuer Hardwarelever `
 Achtung es ist experimentel:
 + Snapshots vorher entfernen
 + Snapshots nur im ausgeschalteten zustan erstellen
+
+### Unlocker 3.0.3
+Funktioniert auch mit VMWare Workstation 16.2.1 build-18811642
+https://github.com/BDisp/unlocker
