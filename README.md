@@ -57,3 +57,12 @@ Achtung es ist experimentel:
 ### Unlocker 3.0.3
 Funktioniert auch mit VMWare Workstation 16.2.1 build-18811642
 https://github.com/BDisp/unlocker
+
+### ESX Unlocker für ESX 7.0U2
+
+https://github.com/erickdimalanta/esxi-unlocker
+
+File unlocker.tgz does not exist
+
+`tar zcf unlocker.tgz etc`
+
