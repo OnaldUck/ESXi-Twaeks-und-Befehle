@@ -3,7 +3,7 @@ Kleine Sammlung von Kommandos für jeden Tag, die man immer wieder sucht
 
 ###  Update auf die neuste Version
 + Je nach dem muss der Host ggf. neu gestartet werden.
-+ Falls was schief geht, kann beim Start in der Konsole die alte Version wiederhergstellt werden.
++ Falls was schief geht, kann beim Start in der Konsole die alte Version wiederhergstellt **Shift + R** werden.
 + Um die Installation durchzuführen müssen Sie das `--dry-run` entfernen
 
 ```
@@ -12,9 +12,9 @@ esxcli software sources profile list -d https://hostupdate.vmware.com/software/V
 esxcli software profile update -p ESXi-7.0U2d-18538813-standard -d https://hostupdate.vmware.com/software/VUM/PRODUCTION/main/vmw-depot-index.xml
 esxcli network firewall ruleset set -e false -r httpClient
 ```
-
+Der Dieser Befehl ist falsch: **software vib update**
+Funktioniert fast immer, ersetzt nicht alle VIBs - glaube ich. Vor allem beim Upgrade von 6.7 auf 7.0.
 `esxcli software vib update -d https://hostupdate.vmware.com/software/VUM/PRODUCTION/main/vmw-depot-index.xml --dry-run`
-
 
 ## Copy & Paste aktivieren (Isolation)
 Öffnen Sie die `/etc/vmware/config` Datei mit einem Texteditor.
