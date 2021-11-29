@@ -1,9 +1,9 @@
 # ESXi-Twaeks-und-Befehle
 Kleine Sammlung von Kommandos für jeden Tag, die man immer wieder sucht
 
-###  Update auf die neuste Version
-+ Je nach dem muss der Host ggf. neu gestartet werden.
-+ Falls was schief geht, kann beim Start in der Konsole die alte Version wiederhergstellt **Shift + R** werden.
+###  Online Update auf die neuste Version
++ Für gewöhnlich muss der Host neu gestartet werden.
++ Falls was schief geht, kann beim Start in der Konsole die alte Version mit **Shift + R** wiederhergstellt werden.
 + Um die Installation durchzuführen müssen Sie das `--dry-run` entfernen
 
 ```
@@ -16,6 +16,21 @@ Der Dieser Befehl ist falsch: **software vib update**.
 
 Funktioniert fast immer, ersetzt nicht alle VIBs - glaube ich. Vor allem beim Upgrade von 6.7 auf 7.0.
 `esxcli software vib update -d https://hostupdate.vmware.com/software/VUM/PRODUCTION/main/vmw-depot-index.xml --dry-run`
+
+### Update Proleme
+
+```
+[InstallationError]
+ [Errno 28] No space left on device
+       vibs = VMware_locker_tools-light_11.3.5.18557794-18812553
+ Please refer to the log file for more details.
+```
+
+```
+cd /tmp
+wget http://hostupdate.vmware.com/software/VUM/PRODUCTION/main/esx/vmw/vib20/tools-light/VMware_locker_tools-light_11.2.5.17337674-17700514.vib
+esxcli software vib install -f -v /tmp/VMware_locker_tools-light_11.3.5.18557794-18812553.vib
+```
 
 ## Copy & Paste aktivieren (Isolation)
 Öffnen Sie die `/etc/vmware/config` Datei mit einem Texteditor.
