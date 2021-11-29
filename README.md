@@ -15,17 +15,18 @@ esxcli network firewall ruleset set -e false -r httpClient
 Der Dieser Befehl ist falsch: **software vib update**.
 
 Funktioniert fast immer, ersetzt nicht alle VIBs - glaube ich. Vor allem beim Upgrade von 6.7 auf 7.0.
+
 `esxcli software vib update -d https://hostupdate.vmware.com/software/VUM/PRODUCTION/main/vmw-depot-index.xml --dry-run`
 
 ### Update Proleme
-
+Wenn das Problem "no space left" kommt...
 ```
 [InstallationError]
  [Errno 28] No space left on device
        vibs = VMware_locker_tools-light_11.3.5.18557794-18812553
  Please refer to the log file for more details.
 ```
-
+Dann muss man die Tools manuel installieren.
 ```
 cd /tmp
 wget http://hostupdate.vmware.com/software/VUM/PRODUCTION/main/esx/vmw/vib20/tools-light/VMware_locker_tools-light_11.2.5.17337674-17700514.vib
