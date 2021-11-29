@@ -12,7 +12,8 @@ esxcli software sources profile list -d https://hostupdate.vmware.com/software/V
 esxcli software profile update -p ESXi-7.0U2d-18538813-standard -d https://hostupdate.vmware.com/software/VUM/PRODUCTION/main/vmw-depot-index.xml
 esxcli network firewall ruleset set -e false -r httpClient
 ```
-Der Dieser Befehl ist falsch: **software vib update**
+Der Dieser Befehl ist falsch: **software vib update**.
+
 Funktioniert fast immer, ersetzt nicht alle VIBs - glaube ich. Vor allem beim Upgrade von 6.7 auf 7.0.
 `esxcli software vib update -d https://hostupdate.vmware.com/software/VUM/PRODUCTION/main/vmw-depot-index.xml --dry-run`
 
