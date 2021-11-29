@@ -14,9 +14,10 @@ esxcli network firewall ruleset set -e false -r httpClient
 ```
 Der Dieser Befehl ist falsch: **software vib update**.
 
-Funktioniert fast immer, ersetzt nicht alle VIBs - glaube ich. Vor allem beim Upgrade von 6.7 auf 7.0.
-
 `esxcli software vib update -d https://hostupdate.vmware.com/software/VUM/PRODUCTION/main/vmw-depot-index.xml --dry-run`
+Hat bei mir bis jetzt immer funktioniert. Beim Upgrade von 6.7 auf 7.0 wurde anschliessend die NVMe nicht gefunden. Bein "richtigen" Upgrad mit **software profile update** war anschliessend alles in Ordnung.
+
+
 
 ### Update Proleme
 Wenn das Problem "no space left" kommt...
