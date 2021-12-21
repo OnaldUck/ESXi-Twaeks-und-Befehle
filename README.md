@@ -44,6 +44,8 @@ isolation.tools.copy.disable="FALSE"
 isolation.tools.paste.disable="FALSE"
 ```
 
+
+
 ## Storage / VMDK
 
 ### VMDK Thick to Thin Konvertierung ### 
@@ -68,6 +70,12 @@ m - temporär, M - dauerhaft
 
 `esxcfg-volume -m 5d967053-3b238502-382b-c81f66d03187`
 
+### SMART Werte einer Festplatte auslesen ###
+esxcli storage nmp device list
+esxcli storage core device smart get -d naa.5e83a975f4156eb1
+
+esxcli storage core device list
+esxcli storage core device smart get -d t10.ATA_____WDC_WD2502ABYS2D18B7A0________________________WD2DWCAT1H751520
 
 ### Hardware Version 16.2.x
 Mit der version von VMWare Workstation 16.2 kommt auch ein neuer Hardwarelever `virtualHW.version = "19"` es ermöglicht einen virtuellen TPM 2.0 (für Win11) zu aktivieren ohne die Maschine zu verschlüsseln. Man aktiviert es in der VMX Datei mit `managedvm.autoAddVTPM = "software"`.
