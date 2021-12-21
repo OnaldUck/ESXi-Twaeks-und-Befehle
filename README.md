@@ -59,7 +59,7 @@ Es wird die noramle VMDK Datei, nicht die -flat gewählt.
 
 ### real size VMDK
 ```
-ls -ahl /vmfs/volumes/vmfs/Debian/Debian-flat.vmdk
+ls -shl /vmfs/volumes/vmfs/Debian/Debian-flat.vmdk
 du -h /vmfs/volumes/vmfs/Debian/Debian-flat.vmdk
 ```
 
