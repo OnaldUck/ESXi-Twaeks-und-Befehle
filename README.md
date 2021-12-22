@@ -48,6 +48,9 @@ isolation.tools.paste.disable="FALSE"
 
 ## Storage / VMDK
 
+### vswp-Datei nicht erstellen ###
+`sched.swap.vmxSwapEnabled=FALSE`
+
 ### VMDK Thick to Thin Konvertierung ### 
 `vmkfstools -i /vmfs/volumes/vmfs/Debian/Debian.vmdk -d thin /vmfs/volumes/vmfs/Debian/Debian-thin.vmdk`
 
