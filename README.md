@@ -48,6 +48,9 @@ isolation.tools.paste.disable="FALSE"
 
 ## Storage / VMDK
 
+### Hatt eine VM Snapshots ###
+`ls /vmfs/volumes/*/*/*.vmx`
+
 ### vswp-Datei nicht erstellen ###
 `sched.swap.vmxSwapEnabled=FALSE`
 
