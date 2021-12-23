@@ -44,21 +44,26 @@ isolation.tools.copy.disable="FALSE"
 isolation.tools.paste.disable="FALSE"
 ```
 
-
-
 ## Storage / VMDK
+### Dateien auf oder von den ESXi Host kopieren
+`scp -r r:\_ESX-alt_\ESXi8\81\ root@192.168.16.200:/vmfs/volumes/ssd/`
+
+Einfach eine Maschine am Stück von Host holen.
+**Achtung:** bei Thin-provisinierten Platten wird die volle größe expnadiert.
+`scp -r root@192.168.6.82:/vmfs/volumes/ssd/082/ r:\_ESX-alt_\ESXi7\105\`
+Man kann mit Wildcard arbeiten *.vmdk
 
 ### Hatt eine VM Snapshots
 `ls /vmfs/volumes/*/*/*.vmx`
 
-### vswp-Datei nicht erstellen ###
+### vswp-Datei nicht erstellen
 `sched.swap.vmxSwapEnabled=FALSE`
 
-### VMDK Thick to Thin Konvertierung ### 
+### VMDK Thick to Thin Konvertierung 
 `vmkfstools -i /vmfs/volumes/vmfs/Debian/Debian.vmdk -d thin /vmfs/volumes/vmfs/Debian/Debian-thin.vmdk`
 
 ### Compact VMDK
-Verkleinern der Datei z.B. nach Windows updae und anschlessenden Bereinigung mit Datenträgerverwaltung.
+Verkleinern der Datei z.B. nach Windows update und anschlessenden Bereinigung mit Datenträgerverwaltung.
 Es wird die noramle VMDK Datei, nicht die -flat gewählt.
 
 `vmkfstools -K /vmfs/volumes/vmfs/Debian/Debian.vmdk`
