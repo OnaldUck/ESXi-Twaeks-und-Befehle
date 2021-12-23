@@ -46,11 +46,11 @@ isolation.tools.paste.disable="FALSE"
 
 ## Storage / VMDK
 ### Dateien auf oder von den ESXi Host kopieren
-`scp -r r:\_ESX-alt_\ESXi8\81\ root@192.168.16.200:/vmfs/volumes/ssd/`
+`scp -r r:\_ESX-alt_\ESXi8\8\ root@192.168.16.200:/vmfs/volumes/ssd/`
 
 Einfach eine Maschine am Stück von Host holen.
 **Achtung:** bei Thin-provisinierten Platten wird die volle größe expnadiert.
-`scp -r root@192.168.6.82:/vmfs/volumes/ssd/082/ r:\_ESX-alt_\ESXi7\105\`
+`scp -r root@192.168.16.200:/vmfs/volumes/ssd/8/ r:\_ESX-alt_\ESXi7\8\`
 Man kann mit Wildcard arbeiten *.vmdk
 
 ### Hatt eine VM Snapshots
