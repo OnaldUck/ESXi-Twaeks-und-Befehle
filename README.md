@@ -46,6 +46,7 @@ isolation.tools.paste.disable="FALSE"
 
 ## Storage / VMDK
 ### Dateien auf oder von den ESXi Host kopieren
+SCP ist sehr schnell, ca. 90MB/s Download- sowie ca. 60MB/s Uploadgeschwindigkeit.
 `scp -r r:\_ESX-alt_\ESXi8\8\ root@192.168.16.200:/vmfs/volumes/ssd/`
 
 Einfach eine Maschine am Stück von Host holen.
