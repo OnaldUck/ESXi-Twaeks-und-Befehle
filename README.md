@@ -12,14 +12,14 @@ esxcli software sources profile list -d https://hostupdate.vmware.com/software/V
 esxcli software profile update -p ESXi-7.0U2d-18538813-standard -d https://hostupdate.vmware.com/software/VUM/PRODUCTION/main/vmw-depot-index.xml
 esxcli network firewall ruleset set -e false -r httpClient
 ```
-Der Dieser Befehl ist falsch: **software vib update**.
+Dieser Befehl funktionierte jahrelang, ist aber falsch: **`software vib update`**.
 
 `esxcli software vib update -d https://hostupdate.vmware.com/software/VUM/PRODUCTION/main/vmw-depot-index.xml --dry-run`
 Hat bei mir bis jetzt immer funktioniert. Beim Upgrade von 6.7 auf 7.0 wurde anschliessend die NVMe nicht gefunden. Bein "richtigen" Upgrad mit **software profile update** war anschliessend alles in Ordnung.
 
 
 
-### Update Proleme
+### Update Probleme
 Wenn das Problem "no space left" kommt...
 ```
 [InstallationError]
@@ -48,7 +48,7 @@ isolation.tools.paste.disable="FALSE"
 
 ## Storage / VMDK
 
-### Hatt eine VM Snapshots ###
+### Hatt eine VM Snapshots
 `ls /vmfs/volumes/*/*/*.vmx`
 
 ### vswp-Datei nicht erstellen ###
