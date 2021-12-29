@@ -17,7 +17,12 @@ Dieser Befehl funktionierte jahrelang, ist aber falsch: **`software vib update`*
 `esxcli software vib update -d https://hostupdate.vmware.com/software/VUM/PRODUCTION/main/vmw-depot-index.xml --dry-run`
 Hat bei mir bis jetzt immer funktioniert. Beim Upgrade von 6.7 auf 7.0 wurde anschliessend die NVMe nicht gefunden. Bein "richtigen" Upgrad mit **software profile update** war anschliessend alles in Ordnung.
 
-
+###  Offline Update auf die neuste Version
+Falls der Host keinen Zugang in die Außenwelt hat
+```
+esxcli software sources profile list -d=/vmfs/volumes/ssd/VMWare-ESXi-7.0U2a-17867351-depot.zip
+esxcli software sources profile update -p VMWare-ESXi-7.0U2a-17867351-standard -d=/vmfs/volumes/ssd/VMWare-ESXi-7.0U2a-17867351-depot.zip
+```
 
 ### Update Probleme
 Wenn das Problem "**no space left**" kommt...
@@ -33,8 +38,13 @@ cd /tmp
 wget http://hostupdate.vmware.com/software/VUM/PRODUCTION/main/esx/vmw/vib20/tools-light/VMware_locker_tools-light_11.2.5.17337674-17700514.vib
 esxcli software vib install -f -v /tmp/VMware_locker_tools-light_11.3.5.18557794-18812553.vib
 ```
-Missing depedency vibs error
+Missing depedency vibs error | Upgrading vSphere 6.7 to 7.0 using the Dell custom ISO
+![esxi-upgrade-error](https://user-images.githubusercontent.com/35377000/147673666-c8b5bdd2-d6f6-4071-a35e-3d1839fde18b.png)
 
+```
+esxcli software vib list | grep qed
+esxcli software vib remove -n qedf
+```
 
 
 ## Copy & Paste aktivieren (Isolation)
