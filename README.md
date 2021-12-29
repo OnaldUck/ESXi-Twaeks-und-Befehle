@@ -17,8 +17,10 @@ Dieser Befehl funktionierte jahrelang, ist aber falsch: **`software vib update`*
 `esxcli software vib update -d https://hostupdate.vmware.com/software/VUM/PRODUCTION/main/vmw-depot-index.xml --dry-run`
 Hat bei mir bis jetzt immer funktioniert. Beim Upgrade von 6.7 auf 7.0 wurde anschliessend die NVMe nicht gefunden. Bein "richtigen" Upgrad mit **software profile update** war anschliessend alles in Ordnung.
 
-###  Offline Update auf die neuste Version
-Falls der Host keinen Zugang in die Außenwelt hat
+###  Offline Update 
++ Falls der Host keinen Zugang in die Außenwelt hat
++ Das ZIP muss bei VMWARE herutergeladen werden (nicht entpacken)
+
 ```
 esxcli software sources profile list -d=/vmfs/volumes/ssd/VMWare-ESXi-7.0U2a-17867351-depot.zip
 esxcli software sources profile update -p VMWare-ESXi-7.0U2a-17867351-standard -d=/vmfs/volumes/ssd/VMWare-ESXi-7.0U2a-17867351-depot.zip
