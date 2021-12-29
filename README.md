@@ -20,7 +20,7 @@ Hat bei mir bis jetzt immer funktioniert. Beim Upgrade von 6.7 auf 7.0 wurde ans
 
 
 ### Update Probleme
-Wenn das Problem "no space left" kommt...
+Wenn das Problem "**no space left**" kommt...
 ```
 [InstallationError]
  [Errno 28] No space left on device
@@ -33,6 +33,9 @@ cd /tmp
 wget http://hostupdate.vmware.com/software/VUM/PRODUCTION/main/esx/vmw/vib20/tools-light/VMware_locker_tools-light_11.2.5.17337674-17700514.vib
 esxcli software vib install -f -v /tmp/VMware_locker_tools-light_11.3.5.18557794-18812553.vib
 ```
+Missing depedency vibs error
+
+
 
 ## Copy & Paste aktivieren (Isolation)
 Öffnen Sie die `/etc/vmware/config` Datei mit einem Texteditor.
