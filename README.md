@@ -73,6 +73,7 @@ Einfach eine Maschine am Stück von Host holen.
 **Achtung:** bei Thin-provisinierten Platten wird die volle größe expnadiert.
 
 `scp -r root@192.168.16.200:/vmfs/volumes/ssd/8/ r:\_ESX-alt_\ESXi7\8\`
+
 Man kann mit Wildcards arbeiten *.vmdk
 
 ### Hatt eine VM Snapshots
