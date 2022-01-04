@@ -70,14 +70,15 @@ SCP ist sehr schnell, ca. 90MB/s Download- sowie ca. 60MB/s Uploadgeschwindigkei
 
 `scp -r r:\_ESX-alt_\ESXi8\8\ root@192.168.16.200:/vmfs/volumes/ssd/`
 
-Einfach eine Maschine am Stück von Host holen.
+Einfach eine Maschine am Stück von Host holen.  
 **Achtung:** bei Thin-provisinierten Platten wird die volle größe expnadiert.
 
 `scp -r root@192.168.16.200:/vmfs/volumes/ssd/8/ r:\_ESX-alt_\ESXi7\8\`
 
 Man kann mit Wildcards arbeiten *.vmdk
+`scp -r root@192.168.16.82:/vmfs/volumes/nvme/*/*.vmx c:\temp\`
 
-### Hatt eine VM Snapshots
+### Hat eine VM Snapshots
 `ls /vmfs/volumes/*/*/*.vmx`
 
 ### vswp-Datei nicht erstellen
