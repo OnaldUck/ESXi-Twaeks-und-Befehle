@@ -15,6 +15,7 @@ esxcli network firewall ruleset set -e false -r httpClient
 Dieser Befehl funktionierte jahrelang, ist aber falsch: **`software vib update`**.
 
 `esxcli software vib update -d https://hostupdate.vmware.com/software/VUM/PRODUCTION/main/vmw-depot-index.xml --dry-run`
+
 Hat bei mir bis jetzt immer funktioniert. Beim Upgrade von 6.7 auf 7.0 wurde anschliessend die NVMe nicht gefunden. Bein "richtigen" Upgrad mit **software profile update** war anschliessend alles in Ordnung.
 
 ###  Offline Update 
@@ -65,12 +66,14 @@ isolation.tools.paste.disable="FALSE"
 ## Storage / VMDK
 ### Dateien auf oder von den ESXi Host kopieren
 SCP ist sehr schnell, ca. 90MB/s Download- sowie ca. 60MB/s Uploadgeschwindigkeit.
+
 `scp -r r:\_ESX-alt_\ESXi8\8\ root@192.168.16.200:/vmfs/volumes/ssd/`
 
 Einfach eine Maschine am Stück von Host holen.
 **Achtung:** bei Thin-provisinierten Platten wird die volle größe expnadiert.
+
 `scp -r root@192.168.16.200:/vmfs/volumes/ssd/8/ r:\_ESX-alt_\ESXi7\8\`
-Man kann mit Wildcard arbeiten *.vmdk
+Man kann mit Wildcards arbeiten *.vmdk
 
 ### Hatt eine VM Snapshots
 `ls /vmfs/volumes/*/*/*.vmx`
