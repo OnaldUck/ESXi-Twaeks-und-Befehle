@@ -40,9 +40,12 @@ cd /tmp
 wget http://hostupdate.vmware.com/software/VUM/PRODUCTION/main/esx/vmw/vib20/tools-light/VMware_locker_tools-light_11.2.5.17337674-17700514.vib
 esxcli software vib install -f -v /tmp/VMware_locker_tools-light_11.3.5.18557794-18812553.vib
 ```
+### Fehler beim Upgrade einer Dell Custom ISO Version ###
 Missing depedency vibs error | Upgrading vSphere 6.7 to 7.0 using the Dell custom ISO
 ![esxi-upgrade-error](https://user-images.githubusercontent.com/35377000/147673666-c8b5bdd2-d6f6-4071-a35e-3d1839fde18b.png)
 
+Lösung:
+Es müssen Die Dell-Treiber vor dem Upgrade entfernt werden
 ```
 esxcli software vib list | grep qed
 esxcli software vib remove -n qedf
