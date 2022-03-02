@@ -79,7 +79,7 @@ Man kann mit Wildcards arbeiten *.vmdk
 `scp -r root@192.168.16.82:/vmfs/volumes/nvme/*/*.vmx c:\temp\`
 
 ### Hat eine VM Snapshots
-`ls /vmfs/volumes/*/*/*.*Snapshot*.*`
+`ls /vmfs/volumes/*/*/*Snapshot*.*`
 
 ### vswp-Datei nicht erstellen
 `sched.swap.vmxSwapEnabled=FALSE`
