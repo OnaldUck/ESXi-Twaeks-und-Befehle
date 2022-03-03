@@ -135,3 +135,15 @@ File unlocker.tgz does not exist
 
 `tar zcf unlocker.tgz etc`
 
+### Einstellungen sichern
+Wenn man z.B. die Festplatte tauschen muss
+
+`/bin/firmwareConfig.py --backup /tmp/`
+`/bin/firmwareConfig.py --backup /tmp/`
+
+### Installation auf nicht unterstützer Hardware / Whitebox
+Wenn bei der Installation z.B. so was kommt **no network adapters are physically connected to the system**, dann gibt es zwei Möglichkeiten
++ Custom ISO vom Hersteller versuchen (HP, Dell, Lenovo bieten so waas an). Da gibts die Trieber für die vorher nicht erkannte Hardware.
++ ESX-Cuszomizer-PS von **v-front**
+https://www.v-front.de/p/esxi-customizer-ps.html
+
