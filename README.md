@@ -151,4 +151,25 @@ Wenn bei der Installation z.B. so was kommt **no network adapters are physically
 
 ### ESX-Cuszomizer-PS
 Auf der Webseite ist es sehr gut erklärt https://www.v-front.de/p/esxi-customizer-ps.html
-Hier trotzdem ein paar Hinweise:
+Hier trotzdem ein paar Hinweise um Netztwerkkartntreiber für einen HP ProDesk 400 G6 
+
+
+`.\ESXi-Customizer-PS.ps1 -v70 -nsc -sip -pkgDir d:\Downloads\ESXi\vib\`
+
+```
+Logging to a:\TempUSER\ESXi-Customizer-PS-10752.log ...
+Running with PowerShell version 5.1 and VMware PowerCLI version .. build
+
+Connecting the VMware ESXi Software depot ... [OK]
+Getting Imageprofiles, please wait ... [OK]
+Select Base Imageprofile:
+-------------------------------------------
+1 : ESXi-7.0U3c-19193900-standard
+2 : ESXi-7.0U3c-19193900-no-tools
+3 : ESXi-7.0U2e-19290878-standard
+4 : ESXi-7.0U2e-19290878-no-tools
+5 : ESXi-7.0U2d-18538813-standard
+6 : ESXi-7.0U2d-18538813-no-tools
+7 : ESXi-7.0U2sc-18295176-standard
+8 : ESXi-7.0U2sc-18295176-no-tools
+```
