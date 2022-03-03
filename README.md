@@ -153,6 +153,8 @@ Wenn bei der Installation z.B. so was kommt **no network adapters are physically
 Auf der Webseite ist es sehr gut erklärt https://www.v-front.de/p/esxi-customizer-ps.html
 Hier trotzdem ein paar Hinweise um Netztwerkkartntreiber für einen HP ProDesk 400 G6 
 
+Community Netzwork Driver herunterladen
+https://flings.vmware.com/community-networking-driver-for-esxi
 
 `.\ESXi-Customizer-PS.ps1 -v70 -nsc -sip -pkgDir d:\Downloads\ESXi\vib\`
 
@@ -173,3 +175,6 @@ Select Base Imageprofile:
 7 : ESXi-7.0U2sc-18295176-standard
 8 : ESXi-7.0U2sc-18295176-no-tools
 ```
+
+autoPartitionOSDataSize=8192
+systemMediaSize=min
