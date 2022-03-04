@@ -123,16 +123,16 @@ Achtung es ist experimentel:
 + Snapshots vorher entfernen
 + Snapshots nur im ausgeschalteten zustan erstellen
 
-### Unlocker 3.0.3
+### macOS VMWare Unlocker 3.0.3
 Funktioniert auch mit VMWare Workstation 16.2.1 build-18811642
 https://github.com/BDisp/unlocker
 
-### ESX Unlocker für ESX 7.0U2
+### macOS ESX Unlocker für ESX 7.x
 
-https://github.com/erickdimalanta/esxi-unlocker
+https://github.com/netgc/esxi-unlocker-3.0/releases/tag/3.0.3 - funktioniert auch mit der aktuellen Version **ESXi-7.0U3c-19193900**
 
+Probleme / Lösungen
 File unlocker.tgz does not exist
-
 `tar zcf unlocker.tgz etc`
 
 ### Einstellungen sichern
@@ -170,10 +170,6 @@ Select Base Imageprofile:
 2 : ESXi-7.0U3c-19193900-no-tools
 3 : ESXi-7.0U2e-19290878-standard
 4 : ESXi-7.0U2e-19290878-no-tools
-5 : ESXi-7.0U2d-18538813-standard
-6 : ESXi-7.0U2d-18538813-no-tools
-7 : ESXi-7.0U2sc-18295176-standard
-8 : ESXi-7.0U2sc-18295176-no-tools
 ```
 
 autoPartitionOSDataSize=8192
