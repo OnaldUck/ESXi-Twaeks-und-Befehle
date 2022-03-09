@@ -50,9 +50,12 @@ Eigentlich kann man sich direkt auf die Upgrade-Version konzentrieren
 
 `esxcli software sources vib list --depot=https://hostupdate.vmware.com/software/VUM/PRODUCTION/main/vmw-depot-index.xml | grep tools-light | grep Update | sort`
 
-- VMWare Tool im allgemeinen bekommt man hier https://www.vmware.com/go/tools
+
 - oder jemand, der das besser erklärt https://blog.andreas-schreiner.de/2017/11/06/vmware-esxi-online-offline-update/
 
+### Tools Updaten
+VMWare Tool im allgemeinen bekommt man hier https://www.vmware.com/go/tools
+`esxcli software vib install -d /vmfs/volumes/nvme/111temp/VMware-Tools-12.0.0-core-offline-depot-ESXi-all-19345655.zip`
 
 
 ### Fehler beim Upgrade einer Dell Custom ISO Version ###
@@ -136,7 +139,7 @@ Achtung es ist experimentel:
 + Snapshots vorher entfernen
 + Snapshots nur im ausgeschalteten zustan erstellen
 
-### macOS VMWare Unlocker 3.0.3
+### macOS VMWare Workstation Unlocker 3.0.3
 Funktioniert auch mit VMWare Workstation 16.2.1 build-18811642
 https://github.com/BDisp/unlocker
 
