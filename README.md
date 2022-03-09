@@ -42,6 +42,12 @@ cd /tmp
 wget http://hostupdate.vmware.com/software/VUM/PRODUCTION/main/esx/vmw/vib20/tools-light/VMware_locker_tools-light_11.2.5.17337674-17700514.vib
 esxcli software vib install -f -v /tmp/VMware_locker_tools-light_11.3.5.18557794-18812553.vib
 ```
+Wobekommt man die neusten Tools?
+`esxcli software sources vib list --depot=https://hostupdate.vmware.com/software/VUM/PRODUCTION/main/vmw-depot-index.xml | grep tools-light | sort`
+EIgentlich kann man sich direkt auf die Upgrade-Version konzentrieren
+`esxcli software sources vib list --depot=https://hostupdate.vmware.com/software/VUM/PRODUCTION/main/vmw-depot-index.xml | grep tools-light | grep Update | sort`
+VMWare Tool im allgemeinen bekommt man hier https://www.vmware.com/go/tools
+
 ### Fehler beim Upgrade einer Dell Custom ISO Version ###
 Missing depedency vibs error | Upgrading vSphere 6.7 to 7.0 using the Dell custom ISO
 ![esxi-upgrade-error](https://user-images.githubusercontent.com/35377000/147673666-c8b5bdd2-d6f6-4071-a35e-3d1839fde18b.png)
