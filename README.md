@@ -55,6 +55,7 @@ Eigentlich kann man sich direkt auf die Upgrade-Version konzentrieren
 
 ### Tools Updaten
 VMWare Tool im allgemeinen bekommt man hier https://www.vmware.com/go/tools
+
 `esxcli software vib install -d /vmfs/volumes/nvme/111temp/VMware-Tools-12.0.0-core-offline-depot-ESXi-all-19345655.zip`
 
 
