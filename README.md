@@ -192,3 +192,8 @@ Select Base Imageprofile:
 
 autoPartitionOSDataSize=8192
 systemMediaSize=min
+
+### Warnung auf der Oberfläche deaktivieren
+`ESXi Shell for the Host has been enabled`
+
+`vim-cmd hostsvc/advopt/update UserVars.SuppressShellWarning long 1`
