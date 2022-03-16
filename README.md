@@ -54,7 +54,8 @@ Eigentlich kann man sich direkt auf die Upgrade-Version konzentrieren
 - oder jemand, der das besser erklärt https://blog.andreas-schreiner.de/2017/11/06/vmware-esxi-online-offline-update/
 
 
-###DependencyError
+### DependencyError
+Mögliche Probleme beim Update
 ```
 esxcli software profile update -p ESXi-7.0U3c-19193900-standard -d https://hostupdate.vmware.com/software/VUM/PRODUCTION/main/vmw-depot-i
 ndex.xml --dry-run
@@ -64,19 +65,7 @@ ndex.xml --dry-run
  VIB Realtek_bootbank_net55-r8168_8.045a-napi requires com.vmware.driverAPI-9.2.2.0, but the requirement cannot be satisfied within the ImageProfile.
  Please refer to the log file for more details.
 ```
-
-
- [DependencyError]
- VIB Realtek_bootbank_net55-r8168_8.045a-napi requires vmkapi_2_2_0_0, but the requirement cannot be satisfied within the ImageProfile.
- VIB Realtek_bootbank_net55-r8168_8.045a-napi requires com.vmware.driverAPI-9.2.2.0, but the requirement cannot be satisfied within the ImageProfile.
- Please refer to the log file for more details.
-
-
- [DependencyError]
- VIB Realtek_bootbank_net55-r8168_8.045a-napi requires vmkapi_2_2_0_0, but the requirement cannot be satisfied within the ImageProfile.
- VIB Realtek_bootbank_net55-r8168_8.045a-napi requires com.vmware.driverAPI-9.2.2.0, but the requirement cannot be satisfied within the ImageProfile.
- Please refer to the log file for more details.
-
+Lösung
 
 
 ### Tools Updaten
