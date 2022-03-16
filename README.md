@@ -25,7 +25,7 @@ Beim "richtigen Upgrade" mit **software profile update** war anschliessend alles
 
 ```
 esxcli software sources profile list -d /vmfs/volumes/ssd/VMWare-ESXi-7.0U2a-17867351-depot.zip
-esxcli software profile update -p VMWare-ESXi-7.0U2a-17867351-standard -d /vmfs/volumes/ssd/VMWare-ESXi-7.0U2a-17867351-depot.zip
+esxcli software vib update -d /vmfs/volumes/ssd/VMWare-ESXi-7.0U2a-17867351-depot.zip
 ```
 
 ### Update Probleme
