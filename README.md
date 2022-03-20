@@ -213,3 +213,10 @@ systemMediaSize=min
 `ESXi Shell for the Host has been enabled`
 
 `vim-cmd hostsvc/advopt/update UserVars.SuppressShellWarning long 1`
+
+### Aktuelle Aufabe hängt
+Manchmal passiert, dass Aufgaben hängen bleiben und auch ein Neustart der VM nicht hilft. Dann kann man damit versuchen:
+```
+/etc/init.d/hostd restart
+/etc/init.d/vpxa restart
+```
