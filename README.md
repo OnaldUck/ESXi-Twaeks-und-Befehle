@@ -8,7 +8,7 @@ Kleine Sammlung von Kommandos für jeden Tag, die man immer wieder sucht
 
 
 # BIOS Ausgabe z.B. wieviele RAM Module sind installiert
-`smbiosDump`
+`smbiosDump|grep Location, Manufacturer,Part Number, Size, Max. Speed`
 
 ## Warnung auf der Oberfläche deaktivieren
 `ESXi Shell for the Host has been enabled`
