@@ -1,7 +1,18 @@
 # ESXi-Twaeks-und-Befehle
 Kleine Sammlung von Kommandos für jeden Tag, die man immer wieder sucht
 
-###  Online Update auf die neuste Version
+## Copy & Paste aktivieren (Isolation)
+Öffnen Sie die `/etc/vmware/config` Datei mit einem Texteditor.
+Fügen Sie folgende Zeilen hinzu und speichern anschließend wieder die Datei.
+Reboot des Hosts notwendig.
+```
+vmx.fullpath = "/bin/vmx"
+isolation.tools.copy.disable="FALSE"
+isolation.tools.paste.disable="FALSE"
+```
+
+# Updates
+##  Online Update auf die neuste Version
 + Für gewöhnlich muss der Host neu gestartet werden.
 + Falls was schief geht, kann beim Start in der Konsole die alte Version mit **Shift + R** wiederhergstellt werden.
 + Um die Installation durchzuführen müssen Sie das `--dry-run` entfernen
@@ -28,7 +39,7 @@ esxcli software sources profile list -d /vmfs/volumes/ssd/VMWare-ESXi-7.0U2a-178
 esxcli software vib update -d /vmfs/volumes/ssd/VMWare-ESXi-7.0U2a-17867351-depot.zip
 ```
 
-### Update Probleme
+## Update Probleme
 Wenn das Problem "**no space left**" kommt...
 ```
 [InstallationError]
@@ -54,7 +65,7 @@ Eigentlich kann man sich direkt auf die Upgrade-Version konzentrieren
 - oder jemand, der das besser erklärt https://blog.andreas-schreiner.de/2017/11/06/vmware-esxi-online-offline-update/
 
 
-### DependencyError
+## DependencyError
 Mögliche Probleme beim Update
 ```
 esxcli software profile update -p ESXi-7.0U3c-19193900-standard -d https://hostupdate.vmware.com/software/VUM/PRODUCTION/main/vmw-depot-i
@@ -68,13 +79,13 @@ ndex.xml --dry-run
 Lösung
 
 
-### Tools Updaten
+## Tools Updaten
 VMWare Tool im allgemeinen bekommt man hier https://www.vmware.com/go/tools
 
 `esxcli software vib install -d /vmfs/volumes/nvme/111temp/VMware-Tools-12.0.0-core-offline-depot-ESXi-all-19345655.zip`
 
 
-### Fehler beim Upgrade einer Dell Custom ISO Version ###
+## Fehler beim Upgrade einer Dell Custom ISO Version ###
 Missing depedency vibs error | Upgrading vSphere 6.7 to 7.0 using the Dell custom ISO
 ![esxi-upgrade-error](https://user-images.githubusercontent.com/35377000/147673666-c8b5bdd2-d6f6-4071-a35e-3d1839fde18b.png)
 
@@ -85,20 +96,8 @@ esxcli software vib list | grep qed
 esxcli software vib remove -n qedf
 ```
 
-
-
-## Copy & Paste aktivieren (Isolation)
-Öffnen Sie die `/etc/vmware/config` Datei mit einem Texteditor.
-Fügen Sie folgende Zeilen hinzu und speichern anschließend wieder die Datei.
-Reboot des Hosts notwendig.
-```
-vmx.fullpath = "/bin/vmx"
-isolation.tools.copy.disable="FALSE"
-isolation.tools.paste.disable="FALSE"
-```
-
 # Storage / VMDK
-### Dateien auf oder von den ESXi Host kopieren
+## Dateien auf oder von den ESXi Host kopieren
 SCP ist sehr schnell, ca. 90MB/s Download- sowie ca. 60MB/s Uploadgeschwindigkeit.
 
 `scp -r r:\_ESX-alt_\ESXi8\8\ root@192.168.16.200:/vmfs/volumes/ssd/`
@@ -111,22 +110,22 @@ Einfach eine Maschine am Stück von Host holen.
 Man kann mit Wildcards arbeiten *.vmdk
 `scp -r root@192.168.16.82:/vmfs/volumes/nvme/*/*.vmx c:\temp\`
 
-### Hat eine VM Snapshots
+## Hat eine VM Snapshots
 `ls /vmfs/volumes/*/*/*Snapshot*.*`
 
-### vswp-Datei nicht erstellen
+## vswp-Datei nicht erstellen
 `sched.swap.vmxSwapEnabled=FALSE`
 
-### VMDK Thick to Thin Konvertierung 
+## VMDK Thick to Thin Konvertierung 
 `vmkfstools -i /vmfs/volumes/vmfs/Debian/Debian.vmdk -d thin /vmfs/volumes/vmfs/Debian/Debian-thin.vmdk`
 
-### Compact VMDK
+## Compact VMDK
 Verkleinern der Datei z.B. nach Windows update und anschlessenden Bereinigung mit Datenträgerverwaltung.
 Es wird die noramle VMDK Datei, nicht die -flat gewählt.
 
 `vmkfstools -K /vmfs/volumes/vmfs/Debian/Debian.vmdk`
 
-### real size VMDK
+## real size VMDK
 ```
 ls -shl /vmfs/volumes/vmfs/Debian/Debian-flat.vmdk
 du -h /vmfs/volumes/vmfs/Debian/Debian-flat.vmdk
@@ -139,7 +138,7 @@ m - temporär, M - dauerhaft
 
 `esxcfg-volume -m 5d967053-3b238502-382b-c81f66d03187`
 
-### SMART Werte einer Festplatte auslesen ###
+## SMART Werte einer Festplatte auslesen ###
 ```
 esxcli storage nmp device list
 esxcli storage core device smart get -d naa.5e83a975f4156eb1
@@ -149,18 +148,18 @@ esxcli storage core device list
 esxcli storage core device smart get -d t10.ATA_____WDC_WD2502ABYS2D18B7A0________________________WD2DWCAT1H751520
 ```
 
-### Hardware Version 16.2.x
+## Hardware Version 16.2.x
 Mit der version von VMWare Workstation 16.2 kommt auch ein neuer Hardwarelever `virtualHW.version = "19"` es ermöglicht einen virtuellen TPM 2.0 (für Win11) zu aktivieren ohne die Maschine zu verschlüsseln. Man aktiviert es in der VMX Datei mit `managedvm.autoAddVTPM = "software"`.
 
 Achtung es ist experimentel:
 + Snapshots vorher entfernen
 + Snapshots nur im ausgeschalteten zustan erstellen
 
-### macOS VMWare Workstation Unlocker 3.0.3
+## macOS VMWare Workstation Unlocker 3.0.3
 Funktioniert auch mit VMWare Workstation 16.2.1 build-18811642
 https://github.com/BDisp/unlocker
 
-### macOS ESX Unlocker für ESX 7.x
+## macOS ESX Unlocker für ESX 7.x
 Ein Möglichkeit macOS bis hin zu Moterey laufen zu lassen
 + `https://github.com/erickdimalanta/esxi-unlocker` - es ist zwar nur Version 3.0.2 da funtioniert bei mir auch mit der aktuellen Version **ESXi-7.0U3c-19193900** (2022)
 + `https://github.com/netgc/esxi-unlocker-3.0/releases/tag/3.0.3` - dieses Repository ist viel aktueller, fuktionierte bei mir nicht
@@ -169,7 +168,7 @@ Probleme / Lösungen
 File unlocker.tgz does not exist
 `tar zcf unlocker.tgz etc`
 
-### Einstellungen sichern
+## Einstellungen sichern
 Wenn man z.B. die Festplatte tauschen muss.
 Wichtig dabei ist dass der Restore nur auf gleicher Version funktioniert.
 
@@ -183,7 +182,7 @@ Wenn bei der Installation z.B. so was kommt **no network adapters are physically
 + ESX-Cuszomizer-PS von **v-front**
 
 
-### ESX-Cuszomizer-PS
+## ESX-Cuszomizer-PS
 Auf der Webseite ist es sehr gut erklärt https://www.v-front.de/p/esxi-customizer-ps.html
 Hier trotzdem ein paar Hinweise um Netztwerkkartntreiber für einen HP ProDesk 400 G6 
 
@@ -209,12 +208,12 @@ Select Base Imageprofile:
 autoPartitionOSDataSize=8192
 systemMediaSize=min
 
-### Warnung auf der Oberfläche deaktivieren
+## Warnung auf der Oberfläche deaktivieren
 `ESXi Shell for the Host has been enabled`
 
 `vim-cmd hostsvc/advopt/update UserVars.SuppressShellWarning long 1`
 
-### Aktuelle Aufabe hängt
+## Aktuelle Aufabe hängt
 Manchmal passiert, dass Aufgaben hängen bleiben und auch ein Neustart der VM nicht hilft. Dann kann man damit versuchen:
 ```
 /etc/init.d/hostd restart
