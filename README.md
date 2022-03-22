@@ -1,6 +1,28 @@
 # ESXi-Twaeks-und-Befehle
 Kleine Sammlung von Kommandos für jeden Tag, die man immer wieder sucht
 
+# ESXi Version anzeigen
+`vmware -vl`
+
+`uname -a`
+
+
+# BIOS Ausgabe z.B. wieviele RAM Module sind installiert
+`smbiosDump`
+
+## Warnung auf der Oberfläche deaktivieren
+`ESXi Shell for the Host has been enabled`
+
+`vim-cmd hostsvc/advopt/update UserVars.SuppressShellWarning long 1`
+
+## Aktuelle Aufabe hängt (Restart Management)
+Manchmal passiert, dass Aufgaben hängen bleiben und auch ein Neustart der VM nicht hilft. Dann kann man damit versuchen:
+```
+/etc/init.d/hostd restart
+/etc/init.d/vpxa restart
+```
+
+
 ## Copy & Paste aktivieren (Isolation)
 Öffnen Sie die `/etc/vmware/config` Datei mit einem Texteditor.
 Fügen Sie folgende Zeilen hinzu und speichern anschließend wieder die Datei.
@@ -208,14 +230,3 @@ Select Base Imageprofile:
 autoPartitionOSDataSize=8192
 systemMediaSize=min
 
-## Warnung auf der Oberfläche deaktivieren
-`ESXi Shell for the Host has been enabled`
-
-`vim-cmd hostsvc/advopt/update UserVars.SuppressShellWarning long 1`
-
-## Aktuelle Aufabe hängt
-Manchmal passiert, dass Aufgaben hängen bleiben und auch ein Neustart der VM nicht hilft. Dann kann man damit versuchen:
-```
-/etc/init.d/hostd restart
-/etc/init.d/vpxa restart
-```
