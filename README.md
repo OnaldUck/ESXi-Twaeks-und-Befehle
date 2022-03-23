@@ -34,17 +34,20 @@ isolation.tools.paste.disable="FALSE"
 ```
 
 ## Speicher Sharing TPS aktivieren
+Es ist heute aus Sicherheitsgründen deaktiviert. Es ist auch nur dann nötig, wenn RAM Mangelware ist. Auch wenn 
 Überprüfen wie der Wert gesetzt ist
 ```
 esxcli system settings advanced list -o /Mem/ShareForceSalting
 esxcli system settings advanced list -o /Mem/AllocGuestLargePage
 ```
 
-Einschalten / AKtivieren für alle Maschinen. Damit es wirk müssen die VMs neu gestartet werden.
+Einschalten / Aktivieren für alle Maschinen. Damit es wirk müssen die VMs neu gestartet werden und brauch einein Augenblich damit die Wirkung entfaltet.
 ```
 esxcli system settings advanced set -o /Mem/ShareForceSalting -i 0
 esxcli system settings advanced set -o /Mem/AllocGuestLargePage -i 0
 ```
+Man kann dies auch via WebOberfläche ändern.
+<img width="1524" alt="sharesalting" src="https://user-images.githubusercontent.com/35377000/159718627-9fc7f4b2-f8e3-4149-b7be-340220a05b96.png">
 
 # Updates
 ##  Online Update auf die neuste Version
