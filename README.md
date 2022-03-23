@@ -33,6 +33,19 @@ isolation.tools.copy.disable="FALSE"
 isolation.tools.paste.disable="FALSE"
 ```
 
+## Speicher Sharing TPS aktivieren
+Überprüfen wie der Wert gesetzt ist
+```
+esxcli system settings advanced list -o /Mem/ShareForceSalting
+esxcli system settings advanced list -o /Mem/AllocGuestLargePage
+```
+
+Einschalten / AKtivieren für alle Maschinen. Damit es wirk müssen die VMs neu gestartet werden.
+```
+esxcli system settings advanced set -o /Mem/ShareForceSalting -i 0
+esxcli system settings advanced set -o /Mem/AllocGuestLargePage -i 0
+```
+
 # Updates
 ##  Online Update auf die neuste Version
 + Für gewöhnlich muss der Host neu gestartet werden.
