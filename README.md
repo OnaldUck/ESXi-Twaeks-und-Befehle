@@ -199,7 +199,7 @@ https://github.com/BDisp/unlocker
 
 ## macOS ESX Unlocker für ESX 7.x
 Ein Möglichkeit macOS bis hin zu Moterey laufen zu lassen
-+ `https://github.com/erickdimalanta/esxi-unlocker` - es ist zwar nur Version 3.0.2 da funtioniert bei mir auch mit der aktuellen Version **ESXi-7.0U3c-19193900** (2022)
++ `https://github.com/erickdimalanta/esxi-unlocker` - es ist zwar nur Version 3.0.2, die funtioniert bei mir auch mit der aktuellen Version **ESXi-7.0U3d-19482537** (2022)
 + `https://github.com/netgc/esxi-unlocker-3.0/releases/tag/3.0.3` - dieses Repository ist viel aktueller, fuktionierte bei mir nicht
 
 Probleme / Lösungen
@@ -219,6 +219,7 @@ Wenn bei der Installation z.B. so was kommt **no network adapters are physically
 (HP, Dell, Lenovo bieten so waas an). Da gibts die Trieber für die vorher nicht erkannte Hardware.
 + ESX-Cuszomizer-PS von **v-front**
 
+Das hat aber auch seine Grenzen z.B. Realtek R8168 funktioniert ab ESX 7.0 nicht mehr. 
 
 ## ESX-Cuszomizer-PS
 Auf der Webseite ist es sehr gut erklärt https://www.v-front.de/p/esxi-customizer-ps.html
