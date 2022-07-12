@@ -136,10 +136,19 @@ esxcli software vib remove -n qedf
 # Storage / VMDK
 ## Sicherung
 Keine richtige Sicherung aber ein Möglichkeit Maschinen abzuziehen. Es besteht aus zwei Schritten.
-* Die orginale VMX Datei sichern.
-* Vorlagedatei exportieren, d.h. OVF oder OVA (*alles in einer Datei)
+* Die orginale VMX Datei sichern. (_namm kann einfach WInSCP nehmen_)
+`scp -r root@192.168.16.200:/vmfs/volumes/nvme/*/*.vmx a:\ESX200\`
+* Vorlagedatei exportieren, d.h. OVF oder OVA (_alles in einer Datei_)
+`ovftool.exe -tt=ova vi://root@192.168.6.200/Win10-01 r:\ESX2000\`
 
+`c:\Program Files (x86)\VMware\VMware Workstation\OVFTool\`
 
+## Wiederherstellung
+Sie erfolgt in umgekehrter Reihenefolge.
+* Die Einfachste Variante kann so aussehen. (_ich benutze immer den Parameter *-dm=thin_)
+`ovftool d:\OVT\Win10-01\ vi://root@192.168.6.200`
+* Hier die erwiterte Möglichkeit.
+`ovftool -ds=ssd -dm=thin -n=Win10-05 --maxVirtualHardwareVersion=15 d:\OVT\ESX200\ vi://root@192.168.6.200`
 
 ## Dateien auf oder von den ESXi Host kopieren
 SCP ist sehr schnell, ca. 90MB/s Download- sowie ca. 60MB/s Uploadgeschwindigkeit.
