@@ -147,7 +147,7 @@ Keine richtige Sicherung aber ein Möglichkeit Maschinen abzuziehen. Es besteht 
 ## Wiederherstellung
 Sie erfolgt in umgekehrter Reihenefolge, mit einen kleinen Zusatzschritt - alte VMX unterjubeln
 * OVA von der Festplatte auf den ESX host importieren
-* Maschine **deregistrieren**
+* Maschine **deregistrieren** (_Registrierung aufheben_)
 * alte VMX-Datei auf den Host kopieren
 * Maschine wieder registrieren
 
