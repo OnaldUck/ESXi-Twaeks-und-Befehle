@@ -134,6 +134,13 @@ esxcli software vib remove -n qedf
 ```
 
 # Storage / VMDK
+## Sicherung
+Keine richtige Sicherung aber ein Möglichkeit Maschinen abzuziehen. Es besteht aus zwei Schritten.
+* Die orginale VMX Datei sichern.
+* Vorlagedatei exportieren, d.h. OVF oder OVA (*alles in einer Datei)
+
+
+
 ## Dateien auf oder von den ESXi Host kopieren
 SCP ist sehr schnell, ca. 90MB/s Download- sowie ca. 60MB/s Uploadgeschwindigkeit.
 
