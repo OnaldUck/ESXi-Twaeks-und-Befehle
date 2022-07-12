@@ -148,10 +148,10 @@ Keine richtige Sicherung aber ein Möglichkeit Maschinen abzuziehen. Es besteht 
 Sie erfolgt in umgekehrter Reihenefolge.
 * Die Einfachste Variante kann so aussehen. (_man könnet sogar auf **-dm=thin** verzichten_)
 
-`ovftool -dm=thin d:\OVT\Win10-01\ vi://root@192.168.6.200`
+`ovftool -dm=thin d:\OVT\Win10-01\ vi://root@192.168.16.200`
 * Hier die erwiterte Möglichkeit. Die Parameter sind eigentlich selbsterklärend.
 
-`ovftool -ds=ssd -dm=thin -n=Win10-05 --maxVirtualHardwareVersion=15 d:\OVT\ESX200\ vi://root@192.168.6.200`
+`ovftool -ds=ssd -dm=thin -n=Win10-05 --maxVirtualHardwareVersion=15 d:\OVT\ESX200\ vi://root@192.168.16.200`
 
 ## Dateien auf oder von den ESXi Host kopieren
 SCP ist sehr schnell, ca. 90MB/s Download- sowie ca. 60MB/s Uploadgeschwindigkeit.
