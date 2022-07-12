@@ -145,7 +145,12 @@ Keine richtige Sicherung aber ein Möglichkeit Maschinen abzuziehen. Es besteht 
 `ovftool.exe -tt=ova vi://root@192.168.16.200/Win10-01 r:\ESX2000\`
 
 ## Wiederherstellung
-Sie erfolgt in umgekehrter Reihenefolge.
+Sie erfolgt in umgekehrter Reihenefolge, mit einen kleinen Zusatzschritt - alte VMX unterjubeln
+* OVA von der Festplatte auf den ESX host importieren
+* Maschine **deregistrieren**
+* alte VMX-Datei auf den Host kopieren
+* Maschine wieder registrieren
+
 * Die Einfachste Variante kann so aussehen. (_man könnet sogar auf **-dm=thin** verzichten_)
 
 `ovftool -dm=thin d:\OVT\Win10-01\ vi://root@192.168.16.200`
