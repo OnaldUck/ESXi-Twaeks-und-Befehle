@@ -135,6 +135,8 @@ esxcli software vib remove -n qedf
 
 # Storage / VMDK
 ## Sicherung
+[OVF Tool](https://developer.vmware.com/web/tool/4.4.0/ovf) oder in der VMWare Workstation enthalten `c:\Program Files (x86)\VMware\VMware Workstation\OVFTool\`
+
 Keine richtige Sicherung aber ein Möglichkeit Maschinen abzuziehen. Es besteht aus zwei Schritten.
 * Die orginale VMX Datei sichern. (_namm kann einfach WInSCP nehmen_)
 
@@ -142,8 +144,6 @@ Keine richtige Sicherung aber ein Möglichkeit Maschinen abzuziehen. Es besteht 
 * Vorlagedatei exportieren, d.h. OVF oder OVA (_alles in einer Datei_)
 
 `ovftool.exe -tt=ova vi://root@192.168.6.200/Win10-01 r:\ESX2000\`
-
-`c:\Program Files (x86)\VMware\VMware Workstation\OVFTool\`
 
 ## Wiederherstellung
 Sie erfolgt in umgekehrter Reihenefolge.
