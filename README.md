@@ -242,7 +242,7 @@ Wenn bei der Installation z.B. so was kommt **no network adapters are physically
 (HP, Dell, Lenovo bieten so waas an). Da gibts die Trieber für die vorher nicht erkannte Hardware.
 + ESX-Cuszomizer-PS von **v-front**
 
-Das hat aber auch seine Grenzen z.B. Realtek R8168 funktioniert ab ESX 7.0 nicht mehr. 
+Das hat aber auch seine Grenzen **z.B. Realtek R8168 funktioniert ab ESX 7.0 nicht mehr!**. 
 
 ## ESX-Cuszomizer-PS
 Auf der Webseite ist es sehr gut erklärt https://www.v-front.de/p/esxi-customizer-ps.html
