@@ -221,19 +221,18 @@ Funktioniert auch mit VMWare Workstation 16.2.1 build-18811642
 https://github.com/BDisp/unlocker
 
 ## macOS ESX Unlocker für ESX 7.x
-Ein Möglichkeit macOS bis hin zu Moterey laufen zu lassen
-+ [https://github.com/erickdimalanta/esxi-unlocker](https://github.com/erickdimalanta/esxi-unlocker) - es ist zwar nur Version 3.0.2, die funtioniert bei mir auch mit der aktuellen Version **ESXi-7.0U3d-19482537** (2022)
+Eine Möglichkeit macOS bis hin zu Moterey laufen zu lassen
++ [https://github.com/erickdimalanta/esxi-unlocker](https://github.com/erickdimalanta/esxi-unlocker) - es ist zwar nur Version 3.0.2, die funktioniert bei mir auch mit der aktuellen Version **ESXi-7.0U3f-20036589** (2022)
 + [https://github.com/netgc/esxi-unlocker](https://github.com/netgc/esxi-unlocker) - dieses Repository ist viel aktueller, fuktionierte bei mir aber nicht
 
 Probleme / Lösungen
 File unlocker.tgz does not exist
 `tar zcf unlocker.tgz etc`
 
-## Einstellungen sichern
+## ESXi Einstellungen sichern
 Wenn man z.B. die Festplatte tauschen muss.
 Wichtig dabei ist dass der Restore nur auf gleicher Version funktioniert.
 
-`/bin/firmwareConfig.py --backup /tmp/`
 `/bin/firmwareConfig.py --backup /tmp/`
 
 ## Installation auf nicht unterstützer Hardware / Whitebox
