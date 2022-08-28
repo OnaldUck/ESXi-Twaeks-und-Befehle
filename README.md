@@ -136,6 +136,7 @@ esxcli software vib remove -n qedf
 # Storage / VMDK
 ## Sicherung
 Das [OVF Tool](https://developer.vmware.com/web/tool/4.4.0/ovf) kann man bei VMWare herunterladen. Es ist auchVMWare Workstation enthalten `c:\Program Files (x86)\VMware\VMware Workstation\OVFTool\`
+Mit den OVF Tool kann man eine **Vmeware Workstation VM** auf einen ESX bringen `ovftool.exe -dm=thin d:\VMWARE\Debian\Debian.vmx  vi://192.168.16.200`
 Keine richtige Sicherung aber ein Möglichkeit Maschinen abzuziehen. Es besteht aus zwei Schritten.
 * Die orginale VMX Datei sichern. (_namm kann einfach WinSCP nehmen_)
 
