@@ -6,6 +6,10 @@ Kleine Sammlung von Kommandos für jeden Tag, die man immer wieder sucht
 
 `uname -a`
 
+## Achtung bei Installation von 7.x VMFSL Size
+Bei der Installation von ESXi 7.x aufwärts werden z.B. auf einer 250GB SSD 120GB für VMFSL Partition reserviert. Um dies zu vermeiden gibt es zwei Möglichkeiten.
+Beim booten der Installations CD - SHIFT+O drücken und `systemMediaSize=min` hinzufügen oder die BOOT.CFG bearbeiten und den Parameter dort hinzufügen `kernelopt=runweasel systemMediaSize=min cdromBoot`.
+
 
 # BIOS Ausgabe z.B. wieviele RAM Module sind installiert
 `smbiosDump|grep Location, Manufacturer,Part Number, Size, Max. Speed`
