@@ -161,7 +161,9 @@ Sie erfolgt in umgekehrter Reihenefolge, mit einen kleinen Zusatzschritt - alte 
 `ovftool -dm=thin d:\OVT\Win10-01\ vi://root@192.168.16.200`
 * Hier die erwiterte Möglichkeit. Die Parameter sind eigentlich selbsterklärend.
 
-`ovftool -ds=ssd -dm=thin -n=Win10-05 --maxVirtualHardwareVersion=15 d:\OVT\ESX200\ vi://root@192.168.16.200`
+`ovftool -ds=ssd -dm=thin -n=Win10-05 --maxVirtualHardwareVersion=15 d:\OVT\ESX200\Win10.ova vi://root@192.168.16.200`
+Möchte man z.B. eine VMWARE Workstation Maschine auf den ESX übertragen, so muss das Verzeichniss angeben
+`ovftool -ds=ssd -dm=thin -n=Win10-05 --maxVirtualHardwareVersion=15 d:\OVT\Win11\ vi://root@192.168.16.200`
 
 ## Dateien auf oder von den ESXi Host kopieren
 SCP ist sehr schnell, ca. 90MB/s Download- sowie ca. 60MB/s Uploadgeschwindigkeit.
@@ -239,6 +241,7 @@ Wenn man z.B. die Festplatte tauschen muss.
 Wichtig dabei ist dass der Restore nur auf gleicher Version funktioniert.
 
 `/bin/firmwareConfig.py --backup /tmp/`
+`/bin/firmwareConfig.py --restore /tmp/configBundle.tgz`
 
 ## Installation auf nicht unterstützer Hardware / Whitebox
 Wenn bei der Installation z.B. so was kommt **no network adapters are physically connected to the system**, dann gibt es zwei Möglichkeiten
