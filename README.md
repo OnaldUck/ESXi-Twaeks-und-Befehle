@@ -74,6 +74,7 @@ Beim "richtigen Upgrade" mit **software profile update** war anschliessend alles
 ###  Offline Update 
 + Falls der Host keinen Zugang in die Außenwelt hat
 + Das ZIP muss bei VMWARE herutergeladen werden (nicht entpacken)
++ https://customerconnect.vmware.com/patch#search
 
 ```
 esxcli software sources profile list -d /vmfs/volumes/ssd/VMWare-ESXi-7.0U2a-17867351-depot.zip
