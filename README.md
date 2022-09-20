@@ -7,9 +7,9 @@ Kleine Sammlung von Kommandos für jeden Tag, die man immer wieder sucht
 `uname -a`
 
 ## Achtung bei Installation von 7.x (VMFSL, Virtueller Flash)
-Bei der Installation von ESXi 7.x aufwärts, werden z.B. auf einer 250GB SSD 120GB für VMFSL Partition reserviert  dabei werden nur nur ca. ***4GB*** aktiv genutzt !!!. Um dies zu vermeiden gibt es zwei Möglichkeiten.
+Bei der Installation von ESXi 7.x aufwärts, werden z.B. auf einer 250GB SSD **120GB** für VMFSL Partition reserviert, dabei werden nur nur ca. ***4GB*** davon aktiv genutzt !!!. Um dies zu vermeiden gibt es zwei Möglichkeiten:
 
-Um dies zu verhindern, muss man **während** der Installation **SHFT + O** drücken und folgenden Parameter hinzufügen:
+Man muss man **während** der Installation **SHFT + O** drücken und folgenden Parameter hinzufügen:
 a.) den nicht 'supporteten' **autoPartitionOSDataSize**
 
 `autoPartitionOSDataSize=8192`
