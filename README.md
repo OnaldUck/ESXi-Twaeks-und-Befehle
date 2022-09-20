@@ -272,6 +272,11 @@ Select Base Imageprofile:
 4 : ESXi-7.0U2e-19290878-no-tools
 ```
 
-autoPartitionOSDataSize=8192
-systemMediaSize=min
+# VMFSL, Virtueller Flash  
+Bei der Installation von ESX 7.x werden ca. 120GB für OS Daten Pertition reserviert und nur ca. ***4GB*** genutzt !!!
+
+Um dies zu verhindern, muss man während der Installation SHFT + O drücken und folgenden Parameter hinzufügen:
+a.) den nicht 'supporteten' ***autoPartitionOSDataSize***
+`autoPartitionOSDataSize=8192`
+`systemMediaSize=min`
 
