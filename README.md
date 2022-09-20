@@ -11,9 +11,11 @@ Bei der Installation von ESXi 7.x aufwärts, werden z.B. auf einer 250GB SSD 120
 
 Um dies zu verhindern, muss man während der Installation SHFT + O drücken und folgenden Parameter hinzufügen:
 a.) den nicht 'supporteten' ***autoPartitionOSDataSize***
+
 `autoPartitionOSDataSize=8192`
 
 b.) der offizieler Paraneter lautet:
+
 `systemMediaSize=min`
 "nur" wonit 24GB reserviert werden.
 
