@@ -6,9 +6,16 @@ Kleine Sammlung von Kommandos für jeden Tag, die man immer wieder sucht
 
 `uname -a`
 
-## Achtung bei Installation von 7.x VMFSL Size
-Bei der Installation von ESXi 7.x aufwärts werden z.B. auf einer 250GB SSD 120GB für VMFSL Partition reserviert. Um dies zu vermeiden gibt es zwei Möglichkeiten.
-Beim booten der Installations CD - SHIFT+O drücken und `systemMediaSize=min` hinzufügen oder die BOOT.CFG bearbeiten und den Parameter dort hinzufügen `kernelopt=runweasel systemMediaSize=min cdromBoot`.
+## Achtung bei Installation von 7.x (VMFSL, Virtueller Flash)
+Bei der Installation von ESXi 7.x aufwärts, werden z.B. auf einer 250GB SSD 120GB für VMFSL Partition reserviert  dabei werden nur nur ca. ***4GB*** aktiv genutzt !!!. Um dies zu vermeiden gibt es zwei Möglichkeiten.
+
+Um dies zu verhindern, muss man während der Installation SHFT + O drücken und folgenden Parameter hinzufügen:
+a.) den nicht 'supporteten' ***autoPartitionOSDataSize***
+`autoPartitionOSDataSize=8192`
+
+b.) der offizieler Paraneter lautet:
+`systemMediaSize=min`
+"nur" wonit 24GB reserviert werden.
 
 
 # BIOS Ausgabe z.B. wieviele RAM Module sind installiert
@@ -271,14 +278,3 @@ Select Base Imageprofile:
 3 : ESXi-7.0U2e-19290878-standard
 4 : ESXi-7.0U2e-19290878-no-tools
 ```
-
-# VMFSL, Virtueller Flash  
-Bei der Installation von ESX 7.x werden ca. ***120GB*** für OS Daten Pertition reserviert und dabei werden nur nur ca. ***4GB*** aktiv genutzt !!! (wenn man ein kleines Home-Lab ohne VSAN betreibt)
-
-Um dies zu verhindern, muss man während der Installation SHFT + O drücken und folgenden Parameter hinzufügen:
-a.) den nicht 'supporteten' ***autoPartitionOSDataSize***
-`autoPartitionOSDataSize=8192`
-
-b.) der offizieler Paraneter lautet:
-`systemMediaSize=min`
-"nur" wonit 24GB reserviert werden.
