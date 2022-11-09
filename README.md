@@ -80,7 +80,7 @@ Dieser Befehl funktionierte jahrelang, ist aber falsch: **`software vib update`*
 Hat bei mir bis jetzt immer funktioniert. Beim Upgrade von 6.7 auf 7.0 wurde anschliessend die NVMe nicht gefunden.  
 Beim "richtigen Upgrade" mit **software profile update** war anschliessend alles in Ordnung.
 
-###  Offline Update 
+### Update mit Offline Dopot
 + Falls der Host keinen Zugang in die Außenwelt hat
 + Das ZIP muss bei VMWARE herutergeladen werden (nicht entpacken)
 + https://customerconnect.vmware.com/patch#search
