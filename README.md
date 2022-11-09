@@ -86,8 +86,14 @@ Beim "richtigen Upgrade" mit **software profile update** war anschliessend alles
 + https://customerconnect.vmware.com/patch#search
 
 ```
-esxcli software sources profile list -d /vmfs/volumes/ssd/VMWare-ESXi-7.0U2a-17867351-depot.zip
-esxcli software vib update -d /vmfs/volumes/ssd/VMWare-ESXi-7.0U2a-17867351-depot.zip
+esxcli software sources profile list -d /vmfs/volumes/ssd/VMware-ESXi-8.0-20513097-depot.zip
+
+Name                          Vendor        Acceptance Level  Creation Time        Modification Time
+----------------------------  ------------  ----------------  -------------------  -----------------
+ESXi-8.0.0-20513097-standard  VMware, Inc.  PartnerSupported  2022-09-23T18:59:28  2022-09-23T18:59:28
+ESXi-8.0.0-20513097-no-tools  VMware, Inc.  PartnerSupported  2022-09-23T18:59:28  2022-09-23T18:59:28
+
+esxcli software profile update -p ESXi-8.0.0-20513097-standard -d /vmfs/volumes/ssd/VMware-ESXi-8.0-20513097-depot.zip
 ```
 
 ## Update Probleme
