@@ -197,6 +197,9 @@ Man kann mit Wildcards arbeiten *.vmdk
 ## vswp-Datei nicht erstellen
 `sched.swap.vmxSwapEnabled=FALSE`
 
+## Scoreboard Dateien nicht erstellen ##
+`vmx.scoreboard.enabled = "FALSE"`
+
 ## VMDK Thick to Thin Konvertierung 
 `vmkfstools -i /vmfs/volumes/vmfs/Debian/Debian.vmdk -d thin /vmfs/volumes/vmfs/Debian/Debian-thin.vmdk`
 
