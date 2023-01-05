@@ -252,6 +252,9 @@ Probleme / Lösungen
 File unlocker.tgz does not exist
 `tar zcf unlocker.tgz etc`
 
+`./esxi-smctest.sh: Operation not permitted`
+SecureBoot im BIOS deaktivieren - ja, genau :-) !!!
+
 ## ESXi Einstellungen sichern
 Wenn man z.B. die Festplatte tauschen muss.
 Wichtig dabei ist dass der Restore nur auf gleicher Version funktioniert.
