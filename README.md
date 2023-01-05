@@ -263,18 +263,18 @@ Wichtig dabei ist dass der Restore nur auf gleicher Version funktioniert.
 Wenn bei der Installation z.B. so was kommt **no network adapters are physically connected to the system**, dann gibt es zwei Möglichkeiten
 + nach einen Custom-ISO vom Hersteller suchen
 (HP, Dell, Lenovo bieten so waas an). Da gibts die Trieber für die vorher nicht erkannte Hardware.
-+ ESX-Cuszomizer-PS von **v-front**
++ ESX-Customizer-PS von **v-front**
 
 Das hat aber auch seine Grenzen **z.B. Realtek R8168 funktioniert ab ESX 7.0 nicht mehr!**. 
 
-## ESX-Cuszomizer-PS
+## ESX-Customizer-PS | USB-LAN Adapter
 Auf der Webseite ist es sehr gut erklärt https://www.v-front.de/p/esxi-customizer-ps.html
-Hier trotzdem ein paar Hinweise um Netztwerkkartntreiber für einen HP ProDesk 400 G6 
+Hier trotzdem ein paar Hinweise um USB-LAN Adapter von Anker für einen HP ProDesk 400 G6 in Betrieb zu nehmen
 
 Community Netzwork Driver herunterladen
-https://flings.vmware.com/community-networking-driver-for-esxi
+https://flings.vmware.com/usb-network-native-driver-for-esxi nach z.B. c:\1
 
-`.\ESXi-Customizer-PS.ps1 -v70 -nsc -sip -pkgDir d:\Downloads\ESXi\vib\`
+`.\ESXi-Customizer-PS.ps1 -v80 -nsc -sip -pkgDir c:\1`
 
 ```
 Logging to a:\TempUSER\ESXi-Customizer-PS-10752.log ...
@@ -284,8 +284,9 @@ Connecting the VMware ESXi Software depot ... [OK]
 Getting Imageprofiles, please wait ... [OK]
 Select Base Imageprofile:
 -------------------------------------------
-1 : ESXi-7.0U3c-19193900-standard
-2 : ESXi-7.0U3c-19193900-no-tools
-3 : ESXi-7.0U2e-19290878-standard
-4 : ESXi-7.0U2e-19290878-no-tools
+1 : ESXi-8.0a-20842819-standard
+2 : ESXi-8.0a-20842819-no-tools
+3 : ESXi-8.0.0-20513097-standard
+4 : ESXi-8.0.0-20513097-no-tools
+-------------------------------------------
 ```
