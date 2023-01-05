@@ -17,7 +17,7 @@ a.) den nicht 'supporteten' **autoPartitionOSDataSize**
 b.) der offizieler Paraneter lautet:
 
 `systemMediaSize=min`
-"nur" wonit **24GB** reserviert werden.
+womit aber **24GB** reserviert werden.
 
 
 # BIOS Ausgabe z.B. wieviele RAM Module sind installiert
