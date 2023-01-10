@@ -3,50 +3,51 @@
   - [Update Probleme](https://github.com/OnaldUck/ESXi-Twaeks-und-Befehle#Update-Probleme)
 - [Storage](https://github.com/OnaldUck/ESXi-Twaeks-und-Befehle#Storage-/-VMDK)
   - [Sicherung](https://github.com/OnaldUck/ESXi-Twaeks-und-Befehle#Sicherung)
+- [Sonstiges](https://github.com/OnaldUck/ESXi-Twaeks-und-Befehle#Sonstiges)
+  - [Unlocker](https://github.com/OnaldUck/ESXi-Twaeks-und-Befehle#macOS-VMWare-Workstation-Unlocker)
 
-# ESXi-Twaeks-und-Befehle
+
+### ESXi-Twaeks-und-Befehle
 Kleine Sammlung von Kommandos für jeden Tag, die man immer wieder sucht
 
 
-# ESXi Version anzeigen
+### ESXi Version anzeigen
 `vmware -vl`
 
 `uname -a`
 
-## Virtueller Flash
+### Virtueller Flash
 Achtung bei Installation von 7.x
 
 Bei der Installation von ESXi 7.x aufwärts, werden z.B. auf einer 250GB SSD **120GB** für VMFSL Partition reserviert, dabei werden nur nur ca. ***4GB*** davon aktiv genutzt !!!. Um dies zu vermeiden gibt es zwei Möglichkeiten:
 
 Man muss man **während** der Installation **SHFT + O** drücken und folgenden Parameter hinzufügen:
 
-a.) den nicht 'supporteten' **autoPartitionOSDataSize**
+- den nicht 'supporteten' **autoPartitionOSDataSize**
 
 `autoPartitionOSDataSize=8192`
 
-b.) der offizieler Paraneter lautet:
+- der offizieler Paraneter lautet:
 
 `systemMediaSize=min`
 womit aber **24GB** reserviert werden.
 
-
-# BIOS Ausgabe z.B. wieviele RAM Module sind installiert
+### BIOS Ausgabe z.B. wieviele RAM Module sind installiert
 `smbiosDump|grep Location, Manufacturer,Part Number, Size, Max. Speed`
 
-## Warnung auf der Oberfläche deaktivieren
+### Warnung auf der Oberfläche deaktivieren
 `ESXi Shell for the Host has been enabled`
 
 `vim-cmd hostsvc/advopt/update UserVars.SuppressShellWarning long 1`
 
-## Aktuelle Aufgabe hängt (Restart Management)
+### Aktuelle Aufgabe hängt (Restart Management)
 Manchmal passiert, dass Aufgaben hängen bleiben und auch ein Neustart der VM nicht hilft. Dann kann man damit versuchen:
 ```
 /etc/init.d/hostd restart
 /etc/init.d/vpxa restart
 ```
 
-
-## Copy & Paste aktivieren (Isolation)
+### Copy & Paste aktivieren (Isolation)
 Öffnen Sie die `/etc/vmware/config` Datei mit einem Texteditor.
 Fügen Sie folgende Zeilen hinzu und speichern anschließend wieder die Datei.
 Reboot des Hosts notwendig.
@@ -56,7 +57,7 @@ isolation.tools.copy.disable="FALSE"
 isolation.tools.paste.disable="FALSE"
 ```
 
-## Speicher Sharing TPS aktivieren
+### Speicher Sharing TPS aktivieren
 Es ist heute aus Sicherheitsgründen deaktiviert. Es ist auch nur dann nötig, wenn RAM Mangelware ist. So kann es Überprüft werden, wie der Wert gesetzt ist
 ```
 esxcli system settings advanced list -o /Mem/ShareForceSalting
@@ -71,7 +72,10 @@ esxcli system settings advanced set -o /Mem/AllocGuestLargePage -i 0
 Man kann dies auch via WebOberfläche ändern.
 <img width="1524" alt="sharesalting" src="https://user-images.githubusercontent.com/35377000/159718627-9fc7f4b2-f8e3-4149-b7be-340220a05b96.png">
 
+
+
 # Updates
+
 ##  Online Update auf die neuste Version
 + Für gewöhnlich muss der Host neu gestartet werden.
 + Falls was schief geht, kann beim Start in der Konsole die alte Version mit **Shift + R** wiederhergstellt werden.
@@ -140,14 +144,11 @@ ndex.xml --dry-run
  VIB Realtek_bootbank_net55-r8168_8.045a-napi requires com.vmware.driverAPI-9.2.2.0, but the requirement cannot be satisfied within the ImageProfile.
  Please refer to the log file for more details.
 ```
-Lösung
-
 
 ## Tools Updaten
 VMWare Tool im allgemeinen bekommt man hier https://www.vmware.com/go/tools
 
 `esxcli software vib install -d /vmfs/volumes/nvme/111temp/VMware-Tools-12.0.0-core-offline-depot-ESXi-all-19345655.zip`
-
 
 ## Fehler beim Upgrade einer Dell Custom ISO Version ###
 Missing depedency vibs error | Upgrading vSphere 6.7 to 7.0 using the Dell custom ISO
@@ -160,26 +161,29 @@ esxcli software vib list | grep qed
 esxcli software vib remove -n qedf
 ```
 
+
+
 # Storage / VMDK
+
 ## Sicherung
-Das [OVF Tool](https://developer.vmware.com/web/tool/4.4.0/ovf) kann man bei VMWare herunterladen. Es ist auchVMWare Workstation enthalten `c:\Program Files (x86)\VMware\VMware Workstation\OVFTool\`
-Mit den OVF Tool kann man eine **Vmeware Workstation VM** auf einen ESX bringen `ovftool.exe -dm=thin d:\VMWARE\Debian\Debian.vmx  vi://192.168.16.200`
+Das [OVF Tool 4.5](https://developer.vmware.com/web/tool/4.5.0/ovf-tool) kann man bei VMWare herunterladen. Es ist auchVMWare Workstation enthalten `c:\Program Files (x86)\VMware\VMware Workstation\OVFTool\`
+
 Keine richtige Sicherung aber ein Möglichkeit Maschinen abzuziehen. Es besteht aus zwei Schritten.
-* Die orginale VMX Datei sichern. (_namm kann einfach WinSCP nehmen_)
+- Die orginale VMX Datei sichern. (_namm kann einfach WinSCP nehmen_)
 
 `scp -r root@192.168.16.200:/vmfs/volumes/nvme/*/*.vmx a:\ESX200\`
-* Vorlagedatei exportieren, d.h. OVF oder OVA (_alles in einer Datei_)
+- Vorlagedatei exportieren, d.h. OVF oder OVA (*alles in einer Datei*)
 
 `ovftool.exe -tt=ova vi://root@192.168.16.200/Win10-01 r:\ESX2000\`
 
 ## Wiederherstellung
 Sie erfolgt in umgekehrter Reihenefolge, mit einen kleinen Zusatzschritt - alte VMX unterjubeln
-* OVA von der Festplatte auf den ESX host importieren
-* Maschine **deregistrieren** (_Registrierung aufheben_)
-* alte VMX-Datei auf den Host kopieren
-* Maschine wieder registrieren
+- OVA von der Festplatte auf den ESX host importieren
+- Maschine **deregistrieren** (*Registrierung aufheben*)
+- alte VMX-Datei auf den Host kopieren
+- Maschine wieder registrieren
 
-* Die Einfachste Variante kann so aussehen. (_man könnet sogar auf **-dm=thin** verzichten_)
+* Die Einfachste Variante kann so aussehen. (*man könnet sogar auf **-dm=thin** verzichten*)
 
 `ovftool -dm=thin d:\OVT\Win10-01\ vi://root@192.168.16.200`
 * Hier die erwiterte Möglichkeit. Die Parameter sind eigentlich selbsterklärend.
@@ -198,20 +202,6 @@ timeout /t 20
 timeout /t 3
 plink.exe -ssh root@%esx% -pw %pass% vim-cmd vmsvc/power.on 84
 ```
-
-
-## Dateien auf oder von den ESXi Host kopieren
-SCP ist sehr schnell, ca. 90MB/s Download- sowie ca. 60MB/s Uploadgeschwindigkeit.
-
-`scp -r r:\_ESX-alt_\ESXi8\8\ root@192.168.16.200:/vmfs/volumes/ssd/`
-
-Einfach eine Maschine am Stück von Host holen.  
-**Achtung:** bei Thin-provisinierten Platten wird die volle größe expnadiert.
-
-`scp -r root@192.168.16.200:/vmfs/volumes/ssd/8/ r:\_ESX-alt_\ESXi7\8\`
-
-Man kann mit Wildcards arbeiten *.vmdk
-`scp -r root@192.168.16.82:/vmfs/volumes/nvme/*/*.vmx c:\temp\`
 
 ## Hat eine VM Snapshots
 `ls /vmfs/volumes/*/*/*Snapshot*.*`
@@ -254,8 +244,19 @@ esxcli storage core device list
 esxcli storage core device smart get -d t10.ATA_____WDC_WD2502ABYS2D18B7A0________________________WD2DWCAT1H751520
 ```
 
+## ESXi Einstellungen sichern
+Wenn man z.B. die Festplatte tauschen muss.
+Wichtig dabei ist dass der Restore nur auf gleicher Version funktioniert.
+
+`/bin/firmwareConfig.py --backup /tmp/`
+`/bin/firmwareConfig.py --restore /tmp/configBundle.tgz`
+
+
+
+# Sonstiges
+
 ## macOS VMWare Workstation Unlocker 3.0.3
-Funktioniert auch mit VMWare Workstation 16.2.1 build-18811642
+Funktioniert auch mit VMWare Workstation 17.0.0 build-20800274
 https://github.com/BDisp/unlocker
 
 ## macOS ESX Unlocker für ESX 7.x
@@ -275,15 +276,6 @@ Beim Versuch die `./esx.install.sh` auszuführen, kommt folgende Fehlermeldung
 
 SecureBoot im BIOS deaktivieren - ja, genau :-) !!! (*man muss aber den ESX neu installieren*)
 
-## ESXi Einstellungen sichern
-Wenn man z.B. die Festplatte tauschen muss.
-Wichtig dabei ist dass der Restore nur auf gleicher Version funktioniert.
-
-`/bin/firmwareConfig.py --backup /tmp/`
-`/bin/firmwareConfig.py --restore /tmp/configBundle.tgz`
-
-# Sonstiges
-
 ## Installation auf nicht unterstützer Hardware / Whitebox
 Wenn bei der Installation z.B. so was kommt **no network adapters are physically connected to the system**, dann gibt es zwei Möglichkeiten
 - nach einen Custom-ISO vom Hersteller suchen
@@ -292,7 +284,7 @@ Wenn bei der Installation z.B. so was kommt **no network adapters are physically
 
 Das hat aber auch seine Grenzen **z.B. Realtek R8168 funktioniert ab ESX 7.0 nicht mehr!**. 
 
-## ESX-Customizer-PS | USB-LAN Adapter
+## USB-LAN Adapter bei nicht unterstützter Netzwerkkarte
 Auf der Webseite ist es sehr gut erklärt https://www.v-front.de/p/esxi-customizer-ps.html
 Hier trotzdem ein paar Hinweise um USB-LAN Adapter von Anker für einen HP ProDesk 400 G6 in Betrieb zu nehmen
 
@@ -315,3 +307,16 @@ Select Base Imageprofile:
 4 : ESXi-8.0.0-20513097-no-tools
 -------------------------------------------
 ```
+
+## Dateien auf oder von den ESXi Host kopieren
+SCP ist sehr schnell, ca. 90MB/s Download- sowie ca. 60MB/s Uploadgeschwindigkeit.
+
+`scp -r r:\_ESX-alt_\ESXi8\8\ root@192.168.16.200:/vmfs/volumes/ssd/`
+
+Einfach eine Maschine am Stück von Host holen.  
+**Achtung:** bei Thin-provisinierten Platten wird die volle größe expnadiert.
+
+`scp -r root@192.168.16.200:/vmfs/volumes/ssd/8/ r:\_ESX-alt_\ESXi7\8\`
+
+Man kann mit Wildcards arbeiten *.vmdk
+`scp -r root@192.168.16.82:/vmfs/volumes/nvme/*/*.vmx c:\temp\`
