@@ -178,6 +178,17 @@ Sie erfolgt in umgekehrter Reihenefolge, mit einen kleinen Zusatzschritt - alte 
 Möchte man z.B. eine VMWARE Workstation Maschine auf den ESX übertragen, so muss das Verzeichniss angeben
 `ovftool -ds=ssd -dm=thin -n=Win10-05 --maxVirtualHardwareVersion=15 d:\OVT\Win11\ vi://root@192.168.16.200`
 
+## Automatische Sicherung
+Sicherung der Maschine vom Rechner aus, inclusiver Heruterfahren und starten.
+```
+plink.exe -ssh root@%esx% -pw %pass% vim-cmd vmsvc/power.shutdown 84
+timeout /t 20
+%ovf% -tt=ova vi://root:%pass%@%esx%/61-mac s:\ESXi2\
+timeout /t 3
+plink.exe -ssh root@%esx% -pw %pass% vim-cmd vmsvc/power.on 84
+```
+
+
 ## Dateien auf oder von den ESXi Host kopieren
 SCP ist sehr schnell, ca. 90MB/s Download- sowie ca. 60MB/s Uploadgeschwindigkeit.
 
