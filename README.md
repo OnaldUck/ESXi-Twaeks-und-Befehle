@@ -2,7 +2,7 @@
 [ESXi Version anzeigen](https://github.com/OnaldUck/ESXi-Twaeks-und-Befehle#esxi-version-anzeigen)
 
 
-[Achtung bei Installation von 7.x (VMFSL, Virtueller Flash)](https://github.com/OnaldUck/ESXi-Twaeks-und-Befehle#Achtung-bei-Installation-von-7.x-(VMFSL,-Virtueller-Flash))
+[Achtung bei Installation von 7.x (VMFSL, Virtueller Flash)](https://github.com/OnaldUck/ESXi-Twaeks-und-Befehle#achtung-bei-installation-von-7.x-(vmfsl,-virtueller-flash))
 
 # ESXi-Twaeks-und-Befehle
 Kleine Sammlung von Kommandos für jeden Tag, die man immer wieder sucht
