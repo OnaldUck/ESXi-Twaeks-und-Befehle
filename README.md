@@ -2,7 +2,7 @@
 ##### Table of Contents  
 [ESXi-Twaeks-und-Befehle](https://github.com/OnaldUck/ESXi-Twaeks-und-Befehle#esxi-twaeks-und-befehle)
 
-[ESXi Version anzeigen](https://github.com/OnaldUck/ESXi-Twaeks-und-Befehle#esxi version anzeigen)
+[ESXi Version anzeigen](https://github.com/OnaldUck/ESXi-Twaeks-und-Befehle#esxi-version-anzeigen)
 
 # ESXi-Twaeks-und-Befehle
 Kleine Sammlung von Kommandos für jeden Tag, die man immer wieder sucht
