@@ -1,8 +1,7 @@
-# Inhaltsverzeichnis
-##### Table of Contents  
-[ESXi-Twaeks-und-Befehle](https://github.com/OnaldUck/ESXi-Twaeks-und-Befehle#esxi-twaeks-und-befehle)
-
+##### Inhaltsverzeichnis
 [ESXi Version anzeigen](https://github.com/OnaldUck/ESXi-Twaeks-und-Befehle#esxi-version-anzeigen)
+
+[Achtung bei Installation von 7.x (VMFSL, Virtueller Flash)](https://github.com/OnaldUck/Achtung-bei-Installation-von-7.x-(VMFSL,-Virtueller-Flash))
 
 # ESXi-Twaeks-und-Befehle
 Kleine Sammlung von Kommandos für jeden Tag, die man immer wieder sucht
