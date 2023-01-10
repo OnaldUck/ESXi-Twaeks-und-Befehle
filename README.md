@@ -1,7 +1,8 @@
 # Inhaltsverzeichnis
 - [Updates](https://github.com/OnaldUck/ESXi-Twaeks-und-Befehle#Updates)
+  - [Update Probleme](https://github.com/OnaldUck/ESXi-Twaeks-und-Befehle#Update-Probleme)
 - [Storage](https://github.com/OnaldUck/ESXi-Twaeks-und-Befehle#Storage-/-VMDK)
- - [Sicherung](https://github.com/OnaldUck/ESXi-Twaeks-und-Befehle#Sicherung)
+  - [Sicherung](https://github.com/OnaldUck/ESXi-Twaeks-und-Befehle#Sicherung)
 
 # ESXi-Twaeks-und-Befehle
 Kleine Sammlung von Kommandos für jeden Tag, die man immer wieder sucht
@@ -18,6 +19,7 @@ Achtung bei Installation von 7.x
 Bei der Installation von ESXi 7.x aufwärts, werden z.B. auf einer 250GB SSD **120GB** für VMFSL Partition reserviert, dabei werden nur nur ca. ***4GB*** davon aktiv genutzt !!!. Um dies zu vermeiden gibt es zwei Möglichkeiten:
 
 Man muss man **während** der Installation **SHFT + O** drücken und folgenden Parameter hinzufügen:
+
 a.) den nicht 'supporteten' **autoPartitionOSDataSize**
 
 `autoPartitionOSDataSize=8192`
@@ -183,6 +185,7 @@ Sie erfolgt in umgekehrter Reihenefolge, mit einen kleinen Zusatzschritt - alte 
 * Hier die erwiterte Möglichkeit. Die Parameter sind eigentlich selbsterklärend.
 
 `ovftool -ds=ssd -dm=thin -n=Win10-05 --maxVirtualHardwareVersion=15 d:\OVT\ESX200\Win10.ova vi://root@192.168.16.200`
+
 Möchte man z.B. eine VMWARE Workstation Maschine auf den ESX übertragen, so muss das Verzeichniss angeben
 `ovftool -ds=ssd -dm=thin -n=Win10-05 --maxVirtualHardwareVersion=15 d:\OVT\Win11\ vi://root@192.168.16.200`
 
@@ -251,28 +254,23 @@ esxcli storage core device list
 esxcli storage core device smart get -d t10.ATA_____WDC_WD2502ABYS2D18B7A0________________________WD2DWCAT1H751520
 ```
 
-## Hardware Version 16.2.x
-Mit der version von VMWare Workstation 16.2 kommt auch ein neuer Hardwarelever `virtualHW.version = "19"` es ermöglicht einen virtuellen TPM 2.0 (für Win11) zu aktivieren ohne die Maschine zu verschlüsseln. Man aktiviert es in der VMX Datei mit `managedvm.autoAddVTPM = "software"`.
-
-Achtung es ist experimentel:
-+ Snapshots vorher entfernen
-+ Snapshots nur im ausgeschalteten zustan erstellen
-
 ## macOS VMWare Workstation Unlocker 3.0.3
 Funktioniert auch mit VMWare Workstation 16.2.1 build-18811642
 https://github.com/BDisp/unlocker
 
 ## macOS ESX Unlocker für ESX 7.x
 Eine Möglichkeit macOS bis hin zu Moterey laufen zu lassen
-+ [https://github.com/erickdimalanta/esxi-unlocker](https://github.com/erickdimalanta/esxi-unlocker) - es ist zwar nur Version 3.0.2, die funktioniert bei mir auch mit der aktuellen Version **ESXi-7.0U3f-20036589** (2022)
-+ [https://github.com/netgc/esxi-unlocker](https://github.com/netgc/esxi-unlocker) - dieses Repository ist viel aktueller, fuktionierte bei mir aber nicht
+- [https://github.com/erickdimalanta/esxi-unlocker](https://github.com/erickdimalanta/esxi-unlocker) - es ist zwar nur Version 3.0.2, die funktioniert bei mir auch mit der aktuellen Version **ESXi-7.0U3f-20036589** (2022)
+- [https://github.com/netgc/esxi-unlocker](https://github.com/netgc/esxi-unlocker) - dieses Repository ist viel aktueller, fuktionierte bei mir aber nicht
 
 Probleme / Lösungen
 File unlocker.tgz does not exist
+
 `tar zcf unlocker.tgz etc`
 
 `./esxi-smctest.sh: Operation not permitted`
-SecureBoot im BIOS deaktivieren - ja, genau :-) !!!
+
+SecureBoot im BIOS deaktivieren - ja, genau :-) !!! (*man muss aber den ESX nue installieren*)
 
 ## ESXi Einstellungen sichern
 Wenn man z.B. die Festplatte tauschen muss.
@@ -283,9 +281,9 @@ Wichtig dabei ist dass der Restore nur auf gleicher Version funktioniert.
 
 ## Installation auf nicht unterstützer Hardware / Whitebox
 Wenn bei der Installation z.B. so was kommt **no network adapters are physically connected to the system**, dann gibt es zwei Möglichkeiten
-+ nach einen Custom-ISO vom Hersteller suchen
+- nach einen Custom-ISO vom Hersteller suchen
 (HP, Dell, Lenovo bieten so waas an). Da gibts die Trieber für die vorher nicht erkannte Hardware.
-+ ESX-Customizer-PS von **v-front**
+- ESX-Customizer-PS von **v-front**
 
 Das hat aber auch seine Grenzen **z.B. Realtek R8168 funktioniert ab ESX 7.0 nicht mehr!**. 
 
