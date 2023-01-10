@@ -1,11 +1,7 @@
 # Inhaltsverzeichnis
-[ESXi Version anzeigen](https://github.com/OnaldUck/ESXi-Twaeks-und-Befehle#esxi-version-anzeigen)
-
-[Virtueller Flash](https://github.com/OnaldUck/ESXi-Twaeks-und-Befehle#Virtueller-Flash)
-
 [Updates](https://github.com/OnaldUck/ESXi-Twaeks-und-Befehle#Updates)
 
-[Updates](https://github.com/OnaldUck/ESXi-Twaeks-und-Befehle#Storage-/-VMDK)
+[Storage](https://github.com/OnaldUck/ESXi-Twaeks-und-Befehle#Storage-/-VMDK)
 
 
 # ESXi-Twaeks-und-Befehle
