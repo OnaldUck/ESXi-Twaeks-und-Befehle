@@ -4,7 +4,7 @@
 - [Storage](https://github.com/OnaldUck/ESXi-Twaeks-und-Befehle#Storage-/-VMDK)
   - [Sicherung](https://github.com/OnaldUck/ESXi-Twaeks-und-Befehle#Sicherung)
 - [Sonstiges](https://github.com/OnaldUck/ESXi-Twaeks-und-Befehle#Sonstiges)
-  - [Unlocker](https://github.com/OnaldUck/ESXi-Twaeks-und-Befehle#macOS-VMWare-Workstation-Unlocker)
+  - [Unlocker](https://github.com/OnaldUck/ESXi-Twaeks-und-Befehle#macOS-VMWare-Workstation-Unlocker-3.0.3)
 
 
 ### ESXi-Twaeks-und-Befehle
@@ -259,9 +259,9 @@ Wichtig dabei ist dass der Restore nur auf gleicher Version funktioniert.
 Funktioniert auch mit VMWare Workstation 17.0.0 build-20800274
 https://github.com/BDisp/unlocker
 
-## macOS ESX Unlocker für ESX 7.x
+## macOS ESX Unlocker für ESX 8.x
 Eine Möglichkeit macOS bis hin zu Moterey laufen zu lassen
-- [https://github.com/erickdimalanta/esxi-unlocker](https://github.com/erickdimalanta/esxi-unlocker) - es ist zwar nur Version 3.0.2, die funktioniert bei mir auch mit der aktuellen Version **ESXi-7.0U3f-20036589** (2022)
+- [https://github.com/erickdimalanta/esxi-unlocker](https://github.com/erickdimalanta/esxi-unlocker) - es ist zwar nur Version 3.0.2, die funktioniert bei mir auch mit der aktuellen Version **ESXi-8.0a-20842819** (2023)
 - [https://github.com/netgc/esxi-unlocker](https://github.com/netgc/esxi-unlocker) - dieses Repository ist viel aktueller, fuktionierte bei mir aber nicht
 
 ### Probleme / Lösungen
