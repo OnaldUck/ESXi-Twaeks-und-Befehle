@@ -2,7 +2,7 @@
 [ESXi Version anzeigen](https://github.com/OnaldUck/ESXi-Twaeks-und-Befehle#esxi-version-anzeigen)
 
 
-[Achtung bei Installation von 7.x (VMFSL, Virtueller Flash)](https://github.com/OnaldUck/ESXi-Twaeks-und-Befehle#achtung-bei-installation-von-7.x-(vmfsl,-virtueller-flash))
+[Achtung bei Installation von 7.x (VMFSL, Virtueller Flash)](https://github.com/OnaldUck/ESXi-Twaeks-und-Befehle#virtueller flash)
 
 # ESXi-Twaeks-und-Befehle
 Kleine Sammlung von Kommandos für jeden Tag, die man immer wieder sucht
@@ -13,7 +13,9 @@ Kleine Sammlung von Kommandos für jeden Tag, die man immer wieder sucht
 
 `uname -a`
 
-## Achtung bei Installation von 7.x (VMFSL, Virtueller Flash)
+## Virtueller Flash
+Achtung bei Installation von 7.x
+
 Bei der Installation von ESXi 7.x aufwärts, werden z.B. auf einer 250GB SSD **120GB** für VMFSL Partition reserviert, dabei werden nur nur ca. ***4GB*** davon aktiv genutzt !!!. Um dies zu vermeiden gibt es zwei Möglichkeiten:
 
 Man muss man **während** der Installation **SHFT + O** drücken und folgenden Parameter hinzufügen:
