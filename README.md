@@ -263,14 +263,17 @@ Eine Möglichkeit macOS bis hin zu Moterey laufen zu lassen
 - [https://github.com/erickdimalanta/esxi-unlocker](https://github.com/erickdimalanta/esxi-unlocker) - es ist zwar nur Version 3.0.2, die funktioniert bei mir auch mit der aktuellen Version **ESXi-7.0U3f-20036589** (2022)
 - [https://github.com/netgc/esxi-unlocker](https://github.com/netgc/esxi-unlocker) - dieses Repository ist viel aktueller, fuktionierte bei mir aber nicht
 
-Probleme / Lösungen
-File unlocker.tgz does not exist
+### Probleme / Lösungen
+- File unlocker.tgz does not exist
 
 `tar zcf unlocker.tgz etc`
 
+- Operation not permitted
+
+Beim Versuch die `./esx.install.sh` auszuführen, kommt folgende Fehlermeldung
 `./esxi-smctest.sh: Operation not permitted`
 
-SecureBoot im BIOS deaktivieren - ja, genau :-) !!! (*man muss aber den ESX nue installieren*)
+SecureBoot im BIOS deaktivieren - ja, genau :-) !!! (*man muss aber den ESX neu installieren*)
 
 ## ESXi Einstellungen sichern
 Wenn man z.B. die Festplatte tauschen muss.
@@ -279,10 +282,12 @@ Wichtig dabei ist dass der Restore nur auf gleicher Version funktioniert.
 `/bin/firmwareConfig.py --backup /tmp/`
 `/bin/firmwareConfig.py --restore /tmp/configBundle.tgz`
 
+# Sonstiges
+
 ## Installation auf nicht unterstützer Hardware / Whitebox
 Wenn bei der Installation z.B. so was kommt **no network adapters are physically connected to the system**, dann gibt es zwei Möglichkeiten
 - nach einen Custom-ISO vom Hersteller suchen
-(HP, Dell, Lenovo bieten so waas an). Da gibts die Trieber für die vorher nicht erkannte Hardware.
+(HP, Dell, Lenovo bieten so was an). Da gibts die Trieber für die vorher nicht erkannte Hardware.
 - ESX-Customizer-PS von **v-front**
 
 Das hat aber auch seine Grenzen **z.B. Realtek R8168 funktioniert ab ESX 7.0 nicht mehr!**. 
