@@ -1,8 +1,7 @@
 # Inhaltsverzeichnis
-[Updates](https://github.com/OnaldUck/ESXi-Twaeks-und-Befehle#Updates)
-
-[Storage](https://github.com/OnaldUck/ESXi-Twaeks-und-Befehle#Storage-/-VMDK)
-
+- [Updates](https://github.com/OnaldUck/ESXi-Twaeks-und-Befehle#Updates)
+- [Storage](https://github.com/OnaldUck/ESXi-Twaeks-und-Befehle#Storage-/-VMDK)
+ - [Sicherung](https://github.com/OnaldUck/ESXi-Twaeks-und-Befehle#Sicherung)
 
 # ESXi-Twaeks-und-Befehle
 Kleine Sammlung von Kommandos für jeden Tag, die man immer wieder sucht
