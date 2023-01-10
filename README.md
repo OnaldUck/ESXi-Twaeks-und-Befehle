@@ -286,11 +286,14 @@ Wenn bei der Installation z.B. so was kommt **no network adapters are physically
 Das hat aber auch seine Grenzen **z.B. Realtek R8168 funktioniert ab ESX 7.0 nicht mehr!**. 
 
 ## USB-LAN Adapter bei nicht unterstützter Netzwerkkarte
-Auf der Webseite ist es sehr gut erklärt https://www.v-front.de/p/esxi-customizer-ps.html
-Hier trotzdem ein paar Hinweise um USB-LAN Adapter von Anker für einen HP ProDesk 400 G6 in Betrieb zu nehmen
+Auf der Webseite ist es sehr gut erklärt https://www.v-front.de/p/esxi-customizer-ps.html.
+
+Hier trotzdem ein paar Hinweise um USB-LAN Adapter von Anker für einen HP ProDesk 400 G6 in Betrieb zu nehmen.
 
 Community Netzwork Driver herunterladen
-https://flings.vmware.com/usb-network-native-driver-for-esxi nach z.B. c:\1
+[USB Network Native Driver for ESXi](https://flings.vmware.com/usb-network-native-driver-for-esxi) z.B. nach c:\1 herunterladen
+
+Dann mit folgenden Kommando eine ISO Datei mit integrierten USB-Lan Adapter ertellen.
 
 `.\ESXi-Customizer-PS.ps1 -v80 -nsc -sip -pkgDir c:\1`
 
