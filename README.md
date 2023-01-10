@@ -33,6 +33,11 @@ Man muss man **während** der Installation **SHFT + O** drücken und folgenden P
 `systemMediaSize=min`
 womit aber **24GB** reserviert werden.
 
+## vswp-Datei nicht erstellen
+`sched.swap.vmxSwapEnabled=FALSE`
+
+## Scoreboard Dateien nicht erstellen ##
+`vmx.scoreboard.enabled = "FALSE"`
 
 ## BIOS Ausgabe z.B. wieviele RAM Module sind installiert
 `smbiosDump|grep Location, Manufacturer,Part Number, Size, Max. Speed`
@@ -60,22 +65,6 @@ vmx.fullpath = "/bin/vmx"
 isolation.tools.copy.disable="FALSE"
 isolation.tools.paste.disable="FALSE"
 ```
-
-## Speicher Sharing TPS aktivieren
-Es ist heute aus Sicherheitsgründen deaktiviert. Es ist auch nur dann nötig, wenn RAM Mangelware ist. So kann es Überprüft werden, wie der Wert gesetzt ist
-```
-esxcli system settings advanced list -o /Mem/ShareForceSalting
-esxcli system settings advanced list -o /Mem/AllocGuestLargePage
-```
-
-Einschalten / Aktivieren für alle Maschinen. Damit es wirkt, müssen die VMs neu gestartet werden und es braucht ein wenig Zeit damit es die Wirkung entfaltet.
-```
-esxcli system settings advanced set -o /Mem/ShareForceSalting -i 0
-esxcli system settings advanced set -o /Mem/AllocGuestLargePage -i 0
-```
-Man kann dies auch via WebOberfläche ändern.
-<img width="1524" alt="sharesalting" src="https://user-images.githubusercontent.com/35377000/159718627-9fc7f4b2-f8e3-4149-b7be-340220a05b96.png">
-
 
 
 # Updates
@@ -214,12 +203,6 @@ plink.exe -ssh root@%esx% -pw %pass% vim-cmd vmsvc/power.on 84
 ## Hat eine VM Snapshots
 `ls /vmfs/volumes/*/*/*Snapshot*.*`
 
-## vswp-Datei nicht erstellen
-`sched.swap.vmxSwapEnabled=FALSE`
-
-## Scoreboard Dateien nicht erstellen ##
-`vmx.scoreboard.enabled = "FALSE"`
-
 ## VMDK Thick to Thin Konvertierung 
 `vmkfstools -i /vmfs/volumes/vmfs/Debian/Debian.vmdk -d thin /vmfs/volumes/vmfs/Debian/Debian-thin.vmdk`
 
@@ -235,7 +218,7 @@ ls -shl /vmfs/volumes/vmfs/Debian/Debian-flat.vmdk
 du -h /vmfs/volumes/vmfs/Debian/Debian-flat.vmdk
 ```
 
-### Festplatte mit 'fremder' Signatur mounten, z.B. aus einen anderen ESX
+## Festplatte mit 'fremder' Signatur mounten, z.B. aus einen anderen ESX
 `esxcfg-volume -l`
 
 m - temporär, M - dauerhaft
@@ -339,3 +322,20 @@ Einfach eine Maschine am Stück von Host holen.
 
 Man kann mit Wildcards arbeiten *.vmdk
 `scp -r root@192.168.16.82:/vmfs/volumes/nvme/*/*.vmx c:\temp\`
+
+
+## Speicher Sharing TPS aktivieren
+Es ist heute aus Sicherheitsgründen deaktiviert. Es ist auch nur dann nötig, wenn RAM Mangelware ist. So kann es Überprüft werden, wie der Wert gesetzt ist
+```
+esxcli system settings advanced list -o /Mem/ShareForceSalting
+esxcli system settings advanced list -o /Mem/AllocGuestLargePage
+```
+
+Einschalten / Aktivieren für alle Maschinen. Damit es wirkt, müssen die VMs neu gestartet werden und es braucht ein wenig Zeit damit es die Wirkung entfaltet.
+```
+esxcli system settings advanced set -o /Mem/ShareForceSalting -i 0
+esxcli system settings advanced set -o /Mem/AllocGuestLargePage -i 0
+```
+Man kann dies auch via WebOberfläche ändern.
+<img width="1524" alt="sharesalting" src="https://user-images.githubusercontent.com/35377000/159718627-9fc7f4b2-f8e3-4149-b7be-340220a05b96.png">
+
