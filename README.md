@@ -183,7 +183,7 @@ Sicherung der Maschine vom Rechner aus, inclusiver Heruterfahren und starten.
 ```
 plink.exe -ssh root@%esx% -pw %pass% vim-cmd vmsvc/power.shutdown 84
 timeout /t 20
-%ovf% -tt=ova vi://root:%pass%@%esx%/61-mac s:\ESXi2\
+%ovf% -tt=ova vi://root:%pass%@%esx%/61 s:\ESXi2\
 timeout /t 3
 plink.exe -ssh root@%esx% -pw %pass% vim-cmd vmsvc/power.on 84
 ```
