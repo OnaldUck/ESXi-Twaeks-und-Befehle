@@ -3,6 +3,11 @@
 
 [Virtueller Flash](https://github.com/OnaldUck/ESXi-Twaeks-und-Befehle#Virtueller-Flash)
 
+[Updates](https://github.com/OnaldUck/ESXi-Twaeks-und-Befehle#Updates)
+
+[Updates](https://github.com/OnaldUck/ESXi-Twaeks-und-Befehle#Storage-/-VMDK)
+
+
 # ESXi-Twaeks-und-Befehle
 Kleine Sammlung von Kommandos für jeden Tag, die man immer wieder sucht
 
