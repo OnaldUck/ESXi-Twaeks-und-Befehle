@@ -1,4 +1,5 @@
 # Inhaltsverzeichnis
+Das Inhaltsverzeichnis ist nicht vollständig und beinhaltet nur die groben Kategorien.
 - [Updates](https://github.com/OnaldUck/ESXi-Twaeks-und-Befehle#Updates)
   - [Update Probleme](https://github.com/OnaldUck/ESXi-Twaeks-und-Befehle#Update-Probleme)
   - [Tools Updaten](https://github.com/OnaldUck/ESXi-Twaeks-und-Befehle#Tools-Updaten)
