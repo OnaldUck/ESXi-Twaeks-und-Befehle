@@ -263,7 +263,7 @@ Eine Möglichkeit macOS bis hin zu Moterey laufen zu lassen
 - [https://github.com/erickdimalanta/esxi-unlocker](https://github.com/erickdimalanta/esxi-unlocker) - es ist zwar nur Version 3.0.2, die funktioniert bei mir auch mit der aktuellen Version **ESXi-8.0a-20842819** (2023)
 - [https://github.com/netgc/esxi-unlocker](https://github.com/netgc/esxi-unlocker) - dieses Repository ist viel aktueller, fuktionierte bei mir aber nicht
 
-### Probleme / Lösungen
+### Probleme
 - File unlocker.tgz does not exist
 
 `tar zcf unlocker.tgz etc`
@@ -271,8 +271,10 @@ Eine Möglichkeit macOS bis hin zu Moterey laufen zu lassen
 - Operation not permitted
 
 Beim Versuch die `./esx.install.sh` auszuführen, kommt folgende Fehlermeldung
+
 `./esxi-smctest.sh: Operation not permitted`
 
+### Lösung
 SecureBoot im BIOS deaktivieren - ja, genau :-) !!! (*man muss aber den ESX neu installieren*)
 
 ## Installation auf nicht unterstützer Hardware / Whitebox
