@@ -1,6 +1,7 @@
 # Inhaltsverzeichnis
 - [Updates](https://github.com/OnaldUck/ESXi-Twaeks-und-Befehle#Updates)
   - [Update Probleme](https://github.com/OnaldUck/ESXi-Twaeks-und-Befehle#Update-Probleme)
+  - [Tools Updaten](https://github.com/OnaldUck/ESXi-Twaeks-und-Befehle#Tools-Updaten)
 - [Storage](https://github.com/OnaldUck/ESXi-Twaeks-und-Befehle#Storage-/-VMDK)
   - [Sicherung](https://github.com/OnaldUck/ESXi-Twaeks-und-Befehle#Sicherung)
 - [Sonstiges](https://github.com/OnaldUck/ESXi-Twaeks-und-Befehle#Sonstiges)
@@ -17,9 +18,9 @@ Kleine Sammlung von Kommandos für jeden Tag, die man immer wieder sucht
 `uname -a`
 
 ### Virtueller Flash
-Achtung bei Installation von 7.x
+Achtung bei Installation von 7.x oder 8.x
 
-Bei der Installation von ESXi 7.x aufwärts, werden z.B. auf einer 250GB SSD **120GB** für VMFSL Partition reserviert, dabei werden nur nur ca. ***4GB*** davon aktiv genutzt !!!. Um dies zu vermeiden gibt es zwei Möglichkeiten:
+Bei der Installation von ESXi 7.x aufwärts, werden z.B. auf einer 250GB SSD ganze **120GB** für VMFSL Partition reserviert, dabei werden nur nur ca. ***4GB*** davon aktiv genutzt !!!. Um dies zu vermeiden gibt es zwei Möglichkeiten:
 
 Man muss man **während** der Installation **SHFT + O** drücken und folgenden Parameter hinzufügen:
 
@@ -32,13 +33,16 @@ Man muss man **während** der Installation **SHFT + O** drücken und folgenden P
 `systemMediaSize=min`
 womit aber **24GB** reserviert werden.
 
+
 ### BIOS Ausgabe z.B. wieviele RAM Module sind installiert
 `smbiosDump|grep Location, Manufacturer,Part Number, Size, Max. Speed`
+
 
 ### Warnung auf der Oberfläche deaktivieren
 `ESXi Shell for the Host has been enabled`
 
 `vim-cmd hostsvc/advopt/update UserVars.SuppressShellWarning long 1`
+
 
 ### Aktuelle Aufgabe hängt (Restart Management)
 Manchmal passiert, dass Aufgaben hängen bleiben und auch ein Neustart der VM nicht hilft. Dann kann man damit versuchen:
@@ -285,13 +289,19 @@ Wenn bei der Installation z.B. so was kommt **no network adapters are physically
 
 Das hat aber auch seine Grenzen **z.B. Realtek R8168 funktioniert ab ESX 7.0 nicht mehr!**. 
 
+
 ## USB-LAN Adapter bei nicht unterstützter Netzwerkkarte
+
 Auf der Webseite ist es sehr gut erklärt https://www.v-front.de/p/esxi-customizer-ps.html.
 
-Hier trotzdem ein paar Hinweise um USB-LAN Adapter von Anker für einen HP ProDesk 400 G6 in Betrieb zu nehmen.
+Hier trotzdem ein paar Hinweise um den Anker USB 3.0 USB-LAN Adapter auf einen HP ProDesk 400 G6 in Betrieb zu nehmen, der eine nicht unterstütze Realtech Netzwerkkarte besitzt.
+
+Nobmal bin ich kein freund von irgendwelche Adaptern, aber schein gut zu funktionieren. Es gibt auch im Netz Performacetest die kaum einen echten Netzwerkkarte nachstehen.
+
+### Vorgehen
 
 Community Netzwork Driver herunterladen
-[USB Network Native Driver for ESXi](https://flings.vmware.com/usb-network-native-driver-for-esxi) z.B. nach c:\1 herunterladen
+[USB Network Native Driver for ESXi](https://flings.vmware.com/usb-network-native-driver-for-esxi) z.B. nach c:\1 herunterladen.
 
 Dann mit folgenden Kommando eine ISO Datei mit integrierten USB-Lan Adapter ertellen.
 
@@ -311,6 +321,7 @@ Select Base Imageprofile:
 4 : ESXi-8.0.0-20513097-no-tools
 -------------------------------------------
 ```
+
 
 ## Dateien auf oder von den ESXi Host kopieren
 SCP ist sehr schnell, ca. 90MB/s Download- sowie ca. 60MB/s Uploadgeschwindigkeit.
