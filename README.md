@@ -8,16 +8,16 @@
   - [Unlocker](https://github.com/OnaldUck/ESXi-Twaeks-und-Befehle#macOS-VMWare-Workstation-Unlocker)
 
 
-### ESXi-Twaeks-und-Befehle
+## ESXi-Twaeks-und-Befehle
 Kleine Sammlung von Kommandos für jeden Tag, die man immer wieder sucht
 
 
-### ESXi Version anzeigen
+## ESXi Version anzeigen
 `vmware -vl`
 
 `uname -a`
 
-### Virtueller Flash
+## Virtueller Flash
 Achtung bei Installation von 7.x oder 8.x
 
 Bei der Installation von ESXi 7.x aufwärts, werden z.B. auf einer 250GB SSD ganze **120GB** für VMFSL Partition reserviert, dabei werden nur nur ca. ***4GB*** davon aktiv genutzt !!!. Um dies zu vermeiden gibt es zwei Möglichkeiten:
@@ -34,24 +34,24 @@ Man muss man **während** der Installation **SHFT + O** drücken und folgenden P
 womit aber **24GB** reserviert werden.
 
 
-### BIOS Ausgabe z.B. wieviele RAM Module sind installiert
+## BIOS Ausgabe z.B. wieviele RAM Module sind installiert
 `smbiosDump|grep Location, Manufacturer,Part Number, Size, Max. Speed`
 
 
-### Warnung auf der Oberfläche deaktivieren
+## Warnung auf der Oberfläche deaktivieren
 `ESXi Shell for the Host has been enabled`
 
 `vim-cmd hostsvc/advopt/update UserVars.SuppressShellWarning long 1`
 
 
-### Aktuelle Aufgabe hängt (Restart Management)
+## Aktuelle Aufgabe hängt (Restart Management)
 Manchmal passiert, dass Aufgaben hängen bleiben und auch ein Neustart der VM nicht hilft. Dann kann man damit versuchen:
 ```
 /etc/init.d/hostd restart
 /etc/init.d/vpxa restart
 ```
 
-### Copy & Paste aktivieren (Isolation)
+## Copy & Paste aktivieren (Isolation)
 Öffnen Sie die `/etc/vmware/config` Datei mit einem Texteditor.
 Fügen Sie folgende Zeilen hinzu und speichern anschließend wieder die Datei.
 Reboot des Hosts notwendig.
@@ -61,7 +61,7 @@ isolation.tools.copy.disable="FALSE"
 isolation.tools.paste.disable="FALSE"
 ```
 
-### Speicher Sharing TPS aktivieren
+## Speicher Sharing TPS aktivieren
 Es ist heute aus Sicherheitsgründen deaktiviert. Es ist auch nur dann nötig, wenn RAM Mangelware ist. So kann es Überprüft werden, wie der Wert gesetzt ist
 ```
 esxcli system settings advanced list -o /Mem/ShareForceSalting
