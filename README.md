@@ -2,7 +2,7 @@
 - [Updates](https://github.com/OnaldUck/ESXi-Twaeks-und-Befehle#Updates)
   - [Update Probleme](https://github.com/OnaldUck/ESXi-Twaeks-und-Befehle#Update-Probleme)
   - [Tools Updaten](https://github.com/OnaldUck/ESXi-Twaeks-und-Befehle#Tools-Updaten)
-- [Storage](https://github.com/OnaldUck/ESXi-Twaeks-und-Befehle#Storage-/-VMDK)
+- [Storage](https://github.com/OnaldUck/ESXi-Twaeks-und-Befehle#Storage)
   - [Sicherung](https://github.com/OnaldUck/ESXi-Twaeks-und-Befehle#Sicherung)
 - [Sonstiges](https://github.com/OnaldUck/ESXi-Twaeks-und-Befehle#Sonstiges)
   - [Unlocker](https://github.com/OnaldUck/ESXi-Twaeks-und-Befehle#macOS-VMWare-Workstation-Unlocker)
@@ -160,45 +160,7 @@ Um die Tools für alle Maschinen bzw. für den Host bereit zu stellen, braucht m
 
 
 
-# Storage / VMDK
-
-## Sicherung
-Das [OVF Tool 4.5](https://developer.vmware.com/web/tool/4.5.0/ovf-tool) kann man bei VMWare herunterladen. Es ist auchVMWare Workstation enthalten `c:\Program Files (x86)\VMware\VMware Workstation\OVFTool\`
-
-Keine richtige Sicherung aber ein Möglichkeit Maschinen abzuziehen. Es besteht aus zwei Schritten.
-- Die orginale VMX Datei sichern. (_namm kann einfach WinSCP nehmen_)
-
-`scp -r root@192.168.16.200:/vmfs/volumes/nvme/*/*.vmx a:\ESX200\`
-- Vorlagedatei exportieren, d.h. OVF oder OVA (*alles in einer Datei*)
-
-`ovftool.exe -tt=ova vi://root@192.168.16.200/Win10-01 r:\ESX2000\`
-
-## Wiederherstellung
-Sie erfolgt in umgekehrter Reihenefolge, mit einen kleinen Zusatzschritt - alte VMX unterjubeln
-- OVA von der Festplatte auf den ESX host importieren
-- Maschine **deregistrieren** (*Registrierung aufheben*)
-- alte VMX-Datei auf den Host kopieren
-- Maschine wieder registrieren
-
-* Die Einfachste Variante kann so aussehen. (*man könnet sogar auf **-dm=thin** verzichten*)
-
-`ovftool -dm=thin d:\OVT\Win10-01\ vi://root@192.168.16.200`
-* Hier die erwiterte Möglichkeit. Die Parameter sind eigentlich selbsterklärend.
-
-`ovftool -ds=ssd -dm=thin -n=Win10-05 --maxVirtualHardwareVersion=15 d:\OVT\ESX200\Win10.ova vi://root@192.168.16.200`
-
-Möchte man z.B. eine VMWARE Workstation Maschine auf den ESX übertragen, so muss das Verzeichniss angeben
-`ovftool -ds=ssd -dm=thin -n=Win10-05 --maxVirtualHardwareVersion=15 d:\OVT\Win11\ vi://root@192.168.16.200`
-
-## Automatische Sicherung
-Sicherung der Maschine vom Rechner aus, inclusiver Heruterfahren und starten.
-```
-plink.exe -ssh root@%esx% -pw %pass% vim-cmd vmsvc/power.shutdown 84
-timeout /t 20
-%ovf% -tt=ova vi://root:%pass%@%esx%/61 s:\ESXi2\
-timeout /t 3
-plink.exe -ssh root@%esx% -pw %pass% vim-cmd vmsvc/power.on 84
-```
+# Storage
 
 ## Hat eine VM Snapshots
 `ls /vmfs/volumes/*/*/*Snapshot*.*`
@@ -242,6 +204,43 @@ Wichtig dabei ist dass der Restore nur auf gleicher Version funktioniert.
 `/bin/firmwareConfig.py --backup /tmp/`
 `/bin/firmwareConfig.py --restore /tmp/configBundle.tgz`
 
+## Sicherung
+Das [OVF Tool 4.5](https://developer.vmware.com/web/tool/4.5.0/ovf-tool) kann man bei VMWare herunterladen. Es ist auchVMWare Workstation enthalten `c:\Program Files (x86)\VMware\VMware Workstation\OVFTool\`
+
+Keine richtige Sicherung aber ein Möglichkeit Maschinen abzuziehen. Es besteht aus zwei Schritten.
+- Die orginale VMX Datei sichern. (_namm kann einfach WinSCP nehmen_)
+
+`scp -r root@192.168.16.200:/vmfs/volumes/nvme/*/*.vmx a:\ESX200\`
+- Vorlagedatei exportieren, d.h. OVF oder OVA (*alles in einer Datei*)
+
+`ovftool.exe -tt=ova vi://root@192.168.16.200/Win10-01 r:\ESX2000\`
+
+## Wiederherstellung
+Sie erfolgt in umgekehrter Reihenefolge, mit einen kleinen Zusatzschritt - alte VMX unterjubeln
+- OVA von der Festplatte auf den ESX host importieren
+- Maschine **deregistrieren** (*Registrierung aufheben*)
+- alte VMX-Datei auf den Host kopieren
+- Maschine wieder registrieren
+
+* Die Einfachste Variante kann so aussehen. (*man könnet sogar auf **-dm=thin** verzichten*)
+
+`ovftool -dm=thin d:\OVT\Win10-01\ vi://root@192.168.16.200`
+* Hier die erwiterte Möglichkeit. Die Parameter sind eigentlich selbsterklärend.
+
+`ovftool -ds=ssd -dm=thin -n=Win10-05 --maxVirtualHardwareVersion=15 d:\OVT\ESX200\Win10.ova vi://root@192.168.16.200`
+
+Möchte man z.B. eine VMWARE Workstation Maschine auf den ESX übertragen, so muss das Verzeichniss angeben
+`ovftool -ds=ssd -dm=thin -n=Win10-05 --maxVirtualHardwareVersion=15 d:\OVT\Win11\ vi://root@192.168.16.200`
+
+## Automatische Sicherung
+Sicherung der Maschine vom Rechner aus, inclusive Heruterfahren und starten.
+```
+plink.exe -ssh root@%esx% -pw %pass% vim-cmd vmsvc/power.shutdown 84
+timeout /t 20
+%ovf% -tt=ova vi://root:%pass%@%esx%/61 s:\ESXi2\
+timeout /t 3
+plink.exe -ssh root@%esx% -pw %pass% vim-cmd vmsvc/power.on 84
+```
 
 
 # Sonstiges
