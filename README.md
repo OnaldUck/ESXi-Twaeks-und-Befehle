@@ -149,12 +149,6 @@ ndex.xml --dry-run
  Please refer to the log file for more details.
 ```
 
-## Tools Updaten
-VMWare Tool im allgemeinen bekommt man hier https://www.vmware.com/go/tools
-
-Um die Tools für alle Maschinen bzw. für den Host bereit zu stellen, braucht man das Offline Depot welches wie folgt installiert wird.
-
-`esxcli software vib install -d /vmfs/volumes/nvme/111temp/VMware-Tools-12.0.0-core-offline-depot-ESXi-all-19345655.zip`
 
 ## Fehler beim Upgrade einer Dell Custom ISO Version ###
 Missing depedency vibs error | Upgrading vSphere 6.7 to 7.0 using the Dell custom ISO
@@ -166,6 +160,14 @@ Es müssen Die Dell-Treiber vor dem Upgrade entfernt werden
 esxcli software vib list | grep qed
 esxcli software vib remove -n qedf
 ```
+
+
+## Tools Updaten
+VMWare Tool im allgemeinen bekommt man hier https://www.vmware.com/go/tools
+
+Um die Tools für alle Maschinen bzw. für den Host bereit zu stellen, braucht man das Offline Depot welches wie folgt installiert wird.
+
+`esxcli software vib install -d /vmfs/volumes/nvme/111temp/VMware-Tools-12.0.0-core-offline-depot-ESXi-all-19345655.zip`
 
 
 
