@@ -13,6 +13,22 @@ Das Inhaltsverzeichnis ist nicht vollständig und beinhaltet nur die groben Kate
 Kleine Sammlung von Kommandos für jeden Tag, die man immer wieder sucht
 
 
+## Reset der VMID
+Beim registrieren, deregistrieren der Maschinen wird die Nummer immer erhöt. Vor dem registrieren des Maschinen **hostd++ neustarten.
+
+Bei Änderungen an der VMX Datei kann man auch den host-Dienst durchstarten und sich das hin- und her-registrieren der Maschine sparen.
+
+
+```
+/etc/init.d/hostd restart
+/etc/init.d/vpxa restart
+```
+
+```
+/etc/vmware/hostd/vmInventory.xml
+/etc/vmware/hostd/pools.xml
+```
+
 ## ESXi Version anzeigen
 `vmware -vl`
 
