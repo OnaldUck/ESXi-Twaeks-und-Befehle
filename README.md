@@ -345,4 +345,5 @@ Nach einen Upgeade auf **Virtuelle ESXi 8.0-Maschine** gib es bei manchen Maschi
 
 ### Lösung
 Nach einen Upgrade in der VMX Datei nach **acpi** suchen und die Zeile entfernen.
+
 `chipset.motherboardLayout = "acpi"`
