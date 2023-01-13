@@ -363,3 +363,10 @@ Nach einen Upgeade auf **Virtuelle ESXi 8.0-Maschine** gib es bei manchen Maschi
 Nach einen Upgrade in der VMX Datei nach **acpi** suchen und die Zeile entfernen.
 
 `chipset.motherboardLayout = "acpi"`
+
+
+## ESXi 8.0 Fesplatte kann nicht hinzugefügt werden
+Auf den ESXi 8.0 kann bei der Erstellung einer Maschiner eine virtuell eDisk hinzugefüht werden, nachträglich aber nicht. Es ist wohl ein WebGUI Fehler.
+
+### Lösung
+Mit VMWare Workstation 17 sich auf din Server verbinden, damit kann man einen HDD hinzufügen. 
