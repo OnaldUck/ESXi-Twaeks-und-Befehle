@@ -339,3 +339,10 @@ esxcli system settings advanced set -o /Mem/AllocGuestLargePage -i 0
 Man kann dies auch via WebOberfläche ändern.
 <img width="1524" alt="sharesalting" src="https://user-images.githubusercontent.com/35377000/159718627-9fc7f4b2-f8e3-4149-b7be-340220a05b96.png">
 
+
+## Upgrade auf HW Version 8.0 Bootschleife
+Nach einen Upgeade auf **Virtuelle ESXi 8.0-Maschine** gib es bei manchen Maschinenarten (vor allem MacOS) Bootprobleme.
+
+### Lösung
+Nach einen Upgrade in der VMX Datei nach **acpi** suchen und die Zeile entfernen.
+`chipset.motherboardLayout = "acpi"`
