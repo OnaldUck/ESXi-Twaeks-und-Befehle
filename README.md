@@ -93,8 +93,8 @@ isolation.tools.paste.disable="FALSE"
 
 ```
 esxcli network firewall ruleset set -e true -r httpClient
-esxcli software sources profile list -d https://hostupdate.vmware.com/software/VUM/PRODUCTION/main/vmw-depot-index.xml | grep 'ESXi-7.0' | sort
-esxcli software profile update -p ESXi-7.0U2d-18538813-standard -d https://hostupdate.vmware.com/software/VUM/PRODUCTION/main/vmw-depot-index.xml
+esxcli software sources profile list -d https://hostupdate.vmware.com/software/VUM/PRODUCTION/main/vmw-depot-index.xml | grep 'ESXi-8' | sort
+esxcli software profile update -p ESXi-8.0c-21493926-standard -d https://hostupdate.vmware.com/software/VUM/PRODUCTION/main/vmw-depot-index.xml
 esxcli network firewall ruleset set -e false -r httpClient
 ```
 Dieser Befehl funktionierte jahrelang, ist aber falsch: **`software vib update`**.
