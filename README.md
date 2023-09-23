@@ -249,6 +249,10 @@ Sie erfolgt in umgekehrter Reihenefolge, mit einen kleinen Zusatzschritt - alte 
 Möchte man z.B. eine VMWARE Workstation Maschine auf den ESX übertragen, so muss das Verzeichniss angeben
 `ovftool -ds=ssd -dm=thin -n=Win10-05 --maxVirtualHardwareVersion=15 d:\OVT\Win11\ vi://root@192.168.16.200`
 
+### Fehler / Lösungen
+Error: No network mapping specified. OVF networks:   bridged. Target networks:   Standard  VM Network  VPN1  VPN2  VPN3
+`ovftool -ds=ssd -dm=thin -n=Win10-05 --maxVirtualHardwareVersion=15 d:\OVT\Win11\ vi://root@192.168.16.200`
+
 ## Automatische Sicherung
 Sicherung der Maschine vom Rechner aus, inclusive Heruterfahren und starten.
 ```
