@@ -133,7 +133,11 @@ Wobekommt man die neusten Tools her?
 
 
 `esxcli software sources vib list --depot=https://hostupdate.vmware.com/software/VUM/PRODUCTION/main/vmw-depot-index.xml | grep tools-light | grep Update | sort`
+
 Dann muss man die Tools manuel installieren.
+
+`esxcli software sources vib list --depot /vmfs/volumes/SSD/VMware-Tools-12.3.0-core-offline-depot-ESXi-all-22234872.zip`
+
 ```
 cd /tmp
 wget http://hostupdate.vmware.com/software/VUM/PRODUCTION/main/esx/vmw/vib20/tools-light/VMware_locker_tools-light_11.2.5.17337674-17700514.vib
