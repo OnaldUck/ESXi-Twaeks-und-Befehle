@@ -14,7 +14,7 @@ Kleine Sammlung von Kommandos für jeden Tag, die man immer wieder sucht
 
 
 ## Reset der VMID
-Beim registrieren, deregistrieren der Maschinen wird die Nummer immer erhöt. Vor dem registrieren des Maschinen **hostd++ neustarten.
+Beim registrieren, deregistrieren der Maschinen wird die Nummer immer erhöt. Vor dem registrieren des Maschinen **hostd** neustarten.
 
 Bei Änderungen an der VMX Datei kann man auch den host-Dienst durchstarten und sich das hin- und her-registrieren der Maschine sparen.
 
@@ -37,7 +37,7 @@ Bei Änderungen an der VMX Datei kann man auch den host-Dienst durchstarten und 
 ## Virtueller Flash
 Achtung bei Installation von 7.x oder 8.x
 
-Bei der Installation von ESXi 7.x aufwärts, werden z.B. auf einer 250GB SSD ganze **120GB** für VMFSL Partition reserviert, dabei werden nur nur ca. ***4GB*** davon aktiv genutzt !!!. Um dies zu vermeiden gibt es zwei Möglichkeiten:
+Bei der Installation von ESXi 7.x aufwärts, werden z.B. auf einer 250GB SSD ganze **120GB** für VMFSL Partition reserviert, dabei werden nur nur ca. **4GB** davon aktiv genutzt !!!. Um dies zu vermeiden gibt es zwei Möglichkeiten:
 
 Man muss man **während** der Installation **SHFT + O** drücken und folgenden Parameter hinzufügen:
 
